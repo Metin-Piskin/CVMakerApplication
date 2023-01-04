@@ -5,10 +5,12 @@ const ContactModal = ({
     visible,
     setvisible,
     modalNameSurnameVisible,
-    setName,
-    setSurname,
+    setNameSurname,
     setLocation,
-    setTelNo
+    setEmail,
+    setTelNo,
+    setLinkedin,
+    setGithub,
 }) => {
     const CloseModal = () => {
         setvisible(false)
@@ -42,34 +44,50 @@ const ContactModal = ({
                     modalNameSurnameVisible &&
                     <>
                         < TextInput
-                            placeholder='Name'
-                            onChangeText={setName}
+                            placeholder='Name Surname'
+                            onChangeText={setNameSurname}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 4.5, borderBottomWidth: 1 }}
-                        />
-                        <TextInput
-                            placeholder='Surname'
-                            onChangeText={setSurname}
-                            placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 4.5, borderBottomWidth: 1 }}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
                         <TextInput
                             placeholder='Location'
                             onChangeText={setLocation}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 4.5, borderBottomWidth: 1 }}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='Email'
+                            onChangeText={setEmail}
+                            placeholderTextColor={'#000'}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            keyboardType='email-address'
+                            textContentType='emailAddress'
                         />
                         <TextInput
                             placeholder='TelNo'
                             onChangeText={setTelNo}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 4.5, borderBottomWidth: 1 }}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                             keyboardType='numeric'
                             maxLength={11}
                         />
+                        < TextInput
+                            placeholder='Linkedin'
+                            onChangeText={setLinkedin}
+                            placeholderTextColor={'#000'}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='Github'
+                            onChangeText={setGithub}
+                            placeholderTextColor={'#000'}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
                     </>
                 }
-                <Text onPress={CloseModal}>Close</Text>
+                <Text onPress={CloseModal}>
+                    Close
+                </Text>
             </View>
         </Modal>
     )

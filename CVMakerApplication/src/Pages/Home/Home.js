@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, View } from 'react-native';
+import { Button, Dimensions, Image, View } from 'react-native';
 
 import Contact from '../../Component/Contact';
 import ContactModal from '../../Component/ContactModal';
 
 const Home = () => {
     const [modalVisible, setModalVisible] = useState(false);
-    const [name, setName] = useState('Name');
-    const [surname, setSurname] = useState('Surname');
+    const [namesurname, setNameSurname] = useState('Name Surname');
     const [location, setLocation] = useState('Location');
+    const [email, setEmail] = useState('Email');
     const [telno, setTelNo] = useState('TelNo');
+    const [linkedin, setLinkedin] = useState('Linkedin');
+    const [github, setGithub] = useState('Github');
     const [namesurnameText, setNameSurnameText] = useState(false);
 
 
@@ -22,36 +24,50 @@ const Home = () => {
         <View>
             <View
                 style={{
-                    maxWidth: 140,
-                    height: Dimensions.get('screen').height,
-                    alignItems: 'center',
-                    borderRightWidth: 2,
-                    borderLeftWidth: 2,
-                    borderColor: 'red'
+                    width: Dimensions.get('screen').width,
+                    borderTopWidth: 2,
+                    borderBottomWidth: 2,
+                    borderColor: 'red',
+                    flexDirection: 'row',
+                    marginTop: 5,
+                    paddingVertical: 10
                 }}
             >
                 <Image
-                    source={{uri: 'https://avatars.githubusercontent.com/u/85956297?v=4'}}
+                    source={{ uri: 'https://avatars.githubusercontent.com/u/85956297?v=4' }}
                     style={{
                         width: 100,
                         height: 120
                     }}
                 />
-                <View style={{ flexDirection: 'row' }}>
-                    <Contact title={name} onPress={NameSurnamePress} />
-                    <Contact title={surname} onPress={NameSurnamePress} />
+                <View
+                    style={{
+                        justifyContent: 'center',
+                        //alignItems: 'center'
+                    }}
+                >
+                    <Contact title={namesurname} />
+                    <Contact title={location} />
+                    <Contact title={email} />
+                    <Contact title={telno} />
+                    <Contact title={github} link={true} git={true} />
+                    <Contact title={linkedin} link={true} />
+                    <Button
+                        title='Press'
+                        onPress={NameSurnamePress}
+                    />
                 </View>
-                <Contact title={location} onPress={NameSurnamePress} />
-                <Contact title={telno} onPress={NameSurnamePress} />
             </View>
 
             <ContactModal
                 visible={modalVisible}
                 setvisible={setModalVisible}
-                setName={setName}
-                setSurname={setSurname}
+                setNameSurname={setNameSurname}
                 setLocation={setLocation}
+                setEmail={setEmail}
                 setTelNo={setTelNo}
+                setLinkedin={setLinkedin}
+                setGithub={setGithub}
                 modalNameSurnameVisible={namesurnameText}
             />
 

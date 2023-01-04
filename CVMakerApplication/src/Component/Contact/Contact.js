@@ -1,16 +1,41 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Linking, Text } from 'react-native';
 
-const Contact = ({ title, onPress }) => {
+const Contact = ({ title, link, git }) => {
     return (
-        <TouchableOpacity
-            onPress={onPress}
-            style={{
-                marginLeft: 5
-            }}
-        >
-            <Text>{title}</Text>
-        </TouchableOpacity>
+        <>
+            {
+                link ? (
+                    <>
+                        {
+                            git ? (
+                                <Text
+                                    style={{ marginLeft: 5 }}
+                                    onPress={() => {
+                                        Linking.openURL('https://github.com/' + { title });
+                                    }}>
+                                    {title}
+                                </Text>
+                            ) : (
+                                <Text
+                                    style={{ marginLeft: 5 }}
+                                    onPress={() => {
+                                        Linking.openURL('https://www.linkedin.com/in/' + { title } + '/');
+                                    }}>
+                                    {title}
+                                </Text>
+                            )
+                        }
+                    </>
+                ) : (
+                    <Text
+                        style={{ marginLeft: 5 }}
+                    >
+                        {title}
+                    </Text>
+                )
+            }
+        </>
     )
 }
 
