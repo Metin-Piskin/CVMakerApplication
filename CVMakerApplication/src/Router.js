@@ -4,13 +4,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-import HomeScreen from './Pages/Home';
+import EditScreen from './Pages/Edit';
 
 const Router = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Home" component={EditScreen} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     );
