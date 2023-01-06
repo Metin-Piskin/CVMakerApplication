@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, View } from 'react-native';
 
+import İtemTitle from '../../Component/İtemTitle';
 import İtemText from '../../Component/İtemText';
 import İtemModal from '../../Component/İtemModal';
+import EducationsText from '../../Component/EducationsText';
+import ExperiencesText from '../../Component/ExperiencesText';
 
 const Edit = () => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const [aboutVisible, setAboutVisible] = useState(false);
-    const [namesurname, setNameSurname] = useState('Name Surname');
-    const [location, setLocation] = useState('Location');
+    const [name, setName] = useState('Name');
+    const [surname, setSurname] = useState('Surname');
+    const [city, setCity] = useState('City');
+    const [country, setCountry] = useState('Country');
     const [email, setEmail] = useState('Email');
     const [telno, setTelNo] = useState('TelNo');
     const [linkedin, setLinkedin] = useState('Linkedin');
@@ -27,10 +32,19 @@ const Edit = () => {
     const [objective, setObjective] = useState('');
 
     const [experienceVisible, setExperienceVisible] = useState(false);
-    const [experience, setExperience] = useState('');
+    const [positionText, setPositionText] = useState([]);
+    const [companyText, setCompanyText] = useState([]);
+    const [summaryText, setSummaryText] = useState([]);
+    const [experiencesStartDateText, setExperiencesStartDateText] = useState([]);
+    const [experiencesEndDateText, setExperiencesEndDateText] = useState([]);
+    const [experiences, setExperiences] = useState([]);
 
     const [educationVisible, setEducationVisible] = useState(false);
-    const [education, setEducation] = useState('');
+    const [fieldofStudyText, setFieldofStudyText] = useState([]);
+    const [schoolText, setSchoolText] = useState([]);
+    const [educationsStartDateText, setEducationsStartDateText] = useState([]);
+    const [educationsEndDateText, setEducationsEndDateText] = useState([]);
+    const [education, setEducation] = useState([]);
 
     const AboutVisiblePress = () => {
         setModalVisible(true)
@@ -71,9 +85,41 @@ const Edit = () => {
         setExperienceVisible(true)
     }
 
+    const AddExperience = () => {
+        if (!positionText) { return; }
+        if (!companyText) { return; }
+        if (!summaryText) { return; }
+        if (!experiencesStartDateText) { return; }
+        if (!experiencesEndDateText) { return; }
+        setExperiences(
+            [...experiences,
+            { positionText },
+            { companyText },
+            { summaryText },
+            { experiencesStartDateText },
+            { experiencesEndDateText }
+            ]
+        );
+    }
+
     const EducationVisiblePress = () => {
         setModalVisible(true)
         setEducationVisible(true)
+    }
+
+    const AddEducation = () => {
+        if (!fieldofStudyText) { return; }
+        if (!schoolText) { return; }
+        if (!educationsStartDateText) { return; }
+        if (!educationsEndDateText) { return; }
+        setEducation(
+            [...education,
+            { fieldofStudyText },
+            { schoolText },
+            { educationsStartDateText },
+            { educationsEndDateText }
+            ]
+        );
     }
 
     return (
@@ -110,11 +156,10 @@ const Edit = () => {
                             }}
                         />
                         <View>
-                            <TouchableOpacity onPress={AboutVisiblePress}>
-                                <Text>About</Text>
-                            </TouchableOpacity>
-                            <İtemText title={namesurname} />
-                            <İtemText title={location} logo='location' />
+                            <İtemTitle title={'About'} onPress={AboutVisiblePress} />
+
+                            <İtemText title={name + ' ' + surname} />
+                            <İtemText title={city + ', ' + country} logo='location' />
                             <İtemText title={email} logo='mail' />
                             <İtemText title={telno} logo='phone-portrait-outline' />
                             <İtemText title={github} link={true} git={true} githublogo='logo-github' />
@@ -129,9 +174,7 @@ const Edit = () => {
                             width: Dimensions.get('screen').width - 15,
                         }}
                     >
-                        <TouchableOpacity onPress={SkillsVisiblePress}>
-                            <Text>Skills</Text>
-                        </TouchableOpacity>
+                        <İtemTitle title={'Skills'} onPress={SkillsVisiblePress} />
                         {
                             skills.map((skills, index) => {
                                 return (
@@ -148,9 +191,7 @@ const Edit = () => {
                             width: Dimensions.get('screen').width - 15,
                         }}
                     >
-                        <TouchableOpacity onPress={LanguageVisiblePress}>
-                            <Text>Language</Text>
-                        </TouchableOpacity>
+                        <İtemTitle title={'Language'} onPress={LanguageVisiblePress} />
                         {
                             language.map((language, index) => {
                                 return (
@@ -169,32 +210,39 @@ const Edit = () => {
                 }}
             >
                 <View>
-                    <TouchableOpacity onPress={ObjectiveVisiblePress}>
-                        <Text>Objective</Text>
-                    </TouchableOpacity>
+                    <İtemTitle title={'Objective'} onPress={ObjectiveVisiblePress} />
                     <İtemText title={objective} />
                 </View>
                 <View>
-                    <TouchableOpacity onPress={ExperienceVisiblePress}>
-                        <Text>Experience</Text>
-                    </TouchableOpacity>
-                    <İtemText title={experience} />
+                    <İtemTitle title={'Experience'} onPress={ExperienceVisiblePress} />
+                    {
+                        experiences
+                            .map((experiences, index) => {
+                                return < ExperiencesText item={experiences} key={index} />
+                            })
+                    }
                 </View>
                 <View>
-                    <TouchableOpacity onPress={EducationVisiblePress}>
-                        <Text>Education</Text>
-                    </TouchableOpacity>
-                    <İtemText title={education} />
+                    <İtemTitle title={'Education'} onPress={EducationVisiblePress} />
+                    {
+                        education
+                            .map((education, index) => {
+                                return < EducationsText item={education} key={index} />
+                            })
+                    }
                 </View>
             </View>
+
             <İtemModal
                 visible={modalVisible}
                 setvisible={setModalVisible}
 
                 setmodalAboutVisible={setAboutVisible}
                 modalAboutVisible={aboutVisible}
-                setNameSurname={setNameSurname}
-                setLocation={setLocation}
+                setName={setName}
+                setSurname={setSurname}
+                setCity={setCity}
+                setCountry={setCountry}
                 setEmail={setEmail}
                 setTelNo={setTelNo}
                 setLinkedin={setLinkedin}
@@ -216,11 +264,20 @@ const Edit = () => {
 
                 setmodalExperienceVisible={setExperienceVisible}
                 modalExperienceVisible={experienceVisible}
-                setExperience={setExperience}
+                setPositionText={setPositionText}
+                setCompanyText={setCompanyText}
+                setSummaryText={setSummaryText}
+                setExperiencesStartDateText={setExperiencesStartDateText}
+                setExperiencesEndDateText={setExperiencesEndDateText}
+                ExperienceAddPress={AddExperience}
 
                 setmodalEducationVisible={setEducationVisible}
                 modalEducationVisible={educationVisible}
-                setEducation={setEducation}
+                setFieldofStudyText={setFieldofStudyText}
+                setSchoolText={setSchoolText}
+                setEducationsStartDateText={setEducationsStartDateText}
+                setEducationsEndDateText={setEducationsEndDateText}
+                EducationAddPress={AddEducation}
             />
 
         </View>

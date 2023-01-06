@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Modal, TextInput, TouchableOpacity } from 'react-native';
+import { View, Modal, TextInput } from 'react-native';
+
+import ModalButton from '../ModalButton';
 
 const İtemModal = ({
     visible,
@@ -7,8 +9,10 @@ const İtemModal = ({
 
     setmodalAboutVisible,
     modalAboutVisible,
-    setNameSurname,
-    setLocation,
+    setName,
+    setSurname,
+    setCity,
+    setCountry,
     setEmail,
     setTelNo,
     setLinkedin,
@@ -30,12 +34,20 @@ const İtemModal = ({
 
     setmodalExperienceVisible,
     modalExperienceVisible,
-    setExperience,
+    setPositionText,
+    setCompanyText,
+    setSummaryText,
+    setExperiencesStartDateText,
+    setExperiencesEndDateText,
+    ExperienceAddPress,
 
     setmodalEducationVisible,
     modalEducationVisible,
-    setEducation,
-
+    setFieldofStudyText,
+    setSchoolText,
+    setEducationsStartDateText,
+    setEducationsEndDateText,
+    EducationAddPress
 }) => {
     const CloseModal = () => {
         setvisible(false)
@@ -75,14 +87,26 @@ const İtemModal = ({
                     modalAboutVisible &&
                     <>
                         < TextInput
-                            placeholder='Name Surname'
-                            onChangeText={setNameSurname}
+                            placeholder='Name'
+                            onChangeText={setName}
+                            placeholderTextColor={'#000'}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        < TextInput
+                            placeholder='Surname'
+                            onChangeText={setSurname}
                             placeholderTextColor={'#000'}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
                         <TextInput
-                            placeholder='Location'
-                            onChangeText={setLocation}
+                            placeholder='City'
+                            onChangeText={setCity}
+                            placeholderTextColor={'#000'}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='Country'
+                            onChangeText={setCountry}
                             placeholderTextColor={'#000'}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
@@ -125,9 +149,7 @@ const İtemModal = ({
                             placeholderTextColor={'#000'}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
-                        <TouchableOpacity onPress={SkillsAddPress}>
-                            <Text>Skills Add</Text>
-                        </TouchableOpacity>
+                        <ModalButton title={'Skills Add'} onPress={SkillsAddPress} />
                     </>
                 }
                 {
@@ -139,9 +161,7 @@ const İtemModal = ({
                             placeholderTextColor={'#000'}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
-                        <TouchableOpacity onPress={LanguageAddPress}>
-                            <Text>Language Add</Text>
-                        </TouchableOpacity>
+                        <ModalButton title={'Language Add'} onPress={LanguageAddPress} />
                     </>
                 }
                 {
@@ -160,29 +180,78 @@ const İtemModal = ({
                     modalExperienceVisible &&
                     <>
                         <TextInput
-                            placeholder='Experience'
-                            onChangeText={setExperience}
+                            placeholder='Position'
+                            onChangeText={setPositionText}
                             placeholderTextColor={'#000'}
                             multiline={true}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
+                        <TextInput
+                            placeholder='Company'
+                            onChangeText={setCompanyText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='Summary'
+                            onChangeText={setSummaryText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='Start Date'
+                            onChangeText={setExperiencesStartDateText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='End Date'
+                            onChangeText={setExperiencesEndDateText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <ModalButton title={'Experience Add'} onPress={ExperienceAddPress} />
                     </>
                 }
                 {
                     modalEducationVisible &&
                     <>
                         <TextInput
-                            placeholder='Education'
-                            onChangeText={setEducation}
+                            placeholder='Field of Study'
+                            onChangeText={setFieldofStudyText}
                             placeholderTextColor={'#000'}
                             multiline={true}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
+                        <TextInput
+                            placeholder='School'
+                            onChangeText={setSchoolText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='Start Date'
+                            onChangeText={setEducationsStartDateText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <TextInput
+                            placeholder='End Date'
+                            onChangeText={setEducationsEndDateText}
+                            placeholderTextColor={'#000'}
+                            multiline={true}
+                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                        />
+                        <ModalButton title={'Education Add'} onPress={EducationAddPress} />
                     </>
                 }
-                <TouchableOpacity onPress={CloseModal}>
-                    <Text>Close</Text>
-                </TouchableOpacity>
+                <ModalButton title={'Close'} onPress={CloseModal} />
             </View>
         </Modal>
     )
