@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 
 import İtemTitle from '../İtemTitle';
@@ -45,8 +45,8 @@ const PaperPage = () => {
     const [experiences, setExperiences] = useState([]);
 
     const [educationVisible, setEducationVisible] = useState(false);
-    const [fieldofStudyText, setFieldofStudyText] = useState([]);
     const [schoolText, setSchoolText] = useState([]);
+    const [fieldofStudyText, setFieldofStudyText] = useState([]);
     const [educationsStartDateText, setEducationsStartDateText] = useState([]);
     const [educationsEndDateText, setEducationsEndDateText] = useState([]);
     const [education, setEducation] = useState([]);
@@ -176,12 +176,12 @@ const PaperPage = () => {
                     })
                 }
             </View>
-            <View
+            <ScrollView
                 style={{
                     backgroundColor: '#fff',
                     height: 610,
                     maxHeight: 610,
-                    borderTopWidth: 2,
+                    borderBottomWidth: 2,
                     borderRightWidth: 2,
                     borderColor: borderWidthColor,
 
@@ -190,7 +190,7 @@ const PaperPage = () => {
                 <View
                     style={{
                         width: Dimensions.get('screen').width - 60,
-                        borderBottomWidth: 2,
+                        //borderBottomWidth: 2,
                         borderColor: borderWidthColor,
                         flexDirection: 'row',
                         marginTop: 5,
@@ -209,13 +209,20 @@ const PaperPage = () => {
                         }}>
                             {
                                 imageGallery === null ? (
-                                    <TouchableOpacity onPress={openGallery}>
+                                    <TouchableOpacity
+                                        onPress={openGallery}
+                                        style={{
+                                            borderWidth: 1,
+                                            borderColor: borderWidthColor,
+                                            marginRight: 10,
+                                            marginBottom: 5
+                                        }}
+                                    >
                                         <Image
                                             source={{ uri: plusimage }}
                                             style={{
                                                 width: 125,
                                                 height: 150,
-                                                marginRight: 10
                                             }}
                                         />
                                     </TouchableOpacity>
@@ -225,27 +232,44 @@ const PaperPage = () => {
                                         style={{
                                             width: 125,
                                             height: 150,
-                                            marginRight: 10
+                                            marginRight: 10,
+                                            marginBottom: 5
                                         }}
                                     />
                                 )
                             }
-                            <View
-                                style={{
-                                    borderWidth: 1,
-                                    paddingRight: 45,
-                                    paddingLeft: 10,
-                                    borderColor: borderWidthColor,
-                                }}
-                            >
-                                <İtemTitle title={'About'} onPress={AboutVisiblePress} />
-
-                                <İtemText title={name + ' ' + surname} />
-                                <İtemText title={city + ', ' + country} logo='location' />
-                                <İtemText title={email} logo='mail' />
-                                <İtemText title={telno} logo='phone-portrait-outline' />
-                                <İtemText title={github} link={true} git={true} githublogo='logo-github' />
-                                <İtemText title={linkedin} link={true} linkedinlogo='logo-linkedin' />
+                            <View>
+                                <İtemTitle
+                                    title={'About'}
+                                    onPress={AboutVisiblePress}
+                                    IconName='id-card'
+                                    borderColor={borderWidthColor}
+                                    IconColor={
+                                        borderWidthColor === 'white' ? (
+                                            'black'
+                                        ) : (
+                                            borderWidthColor
+                                        )
+                                    }
+                                />
+                                <View
+                                    style={{
+                                        // borderWidth: 1,
+                                        paddingRight: 45,
+                                        paddingLeft: 10,
+                                        borderRadius: 10,
+                                        borderColor: borderWidthColor,
+                                    }}
+                                >
+                                    <View style={{ alignItems: 'center' }}>
+                                        <İtemText title={name + ' ' + surname} />
+                                    </View>
+                                    <İtemText title={city + ', ' + country} logo='location' />
+                                    <İtemText title={email} logo='mail' />
+                                    <İtemText title={telno} logo='phone-portrait-outline' />
+                                    <İtemText title={github} link={true} git={true} githublogo='logo-github' />
+                                    <İtemText title={linkedin} link={true} linkedinlogo='logo-linkedin' />
+                                </View>
                             </View>
                         </View>
                         <View
@@ -258,9 +282,22 @@ const PaperPage = () => {
                             <View
                                 style={{
                                     width: Dimensions.get('screen').width / 2 - 43,
+                                    marginTop: 7
                                 }}
                             >
-                                <İtemTitle title={'Skills'} onPress={SkillsVisiblePress} />
+                                <İtemTitle
+                                    title={'Skills'}
+                                    onPress={SkillsVisiblePress}
+                                    IconName='rocket'
+                                    borderColor={borderWidthColor}
+                                    IconColor={
+                                        borderWidthColor === 'white' ? (
+                                            'black'
+                                        ) : (
+                                            borderWidthColor
+                                        )
+                                    }
+                                />
                                 <View
                                     style={{
                                         flexDirection: 'row',
@@ -271,7 +308,26 @@ const PaperPage = () => {
                                     {
                                         skills.map((skills, index) => {
                                             return (
-                                                <İtemText key={index} title={skills} />
+                                                <View
+                                                    key={index}
+                                                    style={{
+                                                        flexDirection: 'row',
+                                                    }}
+                                                >
+                                                    <Text
+                                                        style={{
+                                                            color: '#000',
+                                                            fontSize: 35,
+                                                            fontWeight: 'bold',
+                                                            marginVertical: -22,
+                                                            marginLeft: 5,
+                                                            marginRight: -3
+                                                        }}
+                                                    >
+                                                        .
+                                                    </Text>
+                                                    <İtemText title={skills} />
+                                                </View>
                                             )
                                         })
                                     }
@@ -280,9 +336,22 @@ const PaperPage = () => {
                             <View
                                 style={{
                                     width: Dimensions.get('screen').width / 2 - 43,
+                                    marginTop: 7
                                 }}
                             >
-                                <İtemTitle title={'Language'} onPress={LanguageVisiblePress} />
+                                <İtemTitle
+                                    title={'Language'}
+                                    onPress={LanguageVisiblePress}
+                                    IconName='language'
+                                    borderColor={borderWidthColor}
+                                    IconColor={
+                                        borderWidthColor === 'white' ? (
+                                            'black'
+                                        ) : (
+                                            borderWidthColor
+                                        )
+                                    }
+                                />
                                 <View
                                     style={{
                                         flexDirection: 'row',
@@ -293,7 +362,26 @@ const PaperPage = () => {
                                     {
                                         language.map((language, index) => {
                                             return (
-                                                <İtemText key={index} title={language} />
+                                                <View
+                                                    key={index}
+                                                    style={{
+                                                        flexDirection: 'row',
+                                                    }}
+                                                >
+                                                    <Text
+                                                        style={{
+                                                            color: '#000',
+                                                            fontSize: 35,
+                                                            fontWeight: 'bold',
+                                                            marginVertical: -22,
+                                                            marginLeft: 5,
+                                                            marginRight: -3
+                                                        }}
+                                                    >
+                                                        .
+                                                    </Text>
+                                                    <İtemText title={language} />
+                                                </View>
                                             )
                                         })
                                     }
@@ -305,16 +393,40 @@ const PaperPage = () => {
                 <View
                     style={{
                         width: Dimensions.get('screen').width - 75,
-                        paddingHorizontal: 10,
-                        paddingVertical: 10
+                        paddingLeft: 10,
+                        paddingBottom: 8
                     }}
                 >
                     <View >
-                        <İtemTitle title={'Objective'} onPress={ObjectiveVisiblePress} />
+                        <İtemTitle
+                            title={'Objective'}
+                            onPress={ObjectiveVisiblePress}
+                            IconName='dice-d6'
+                            borderColor={borderWidthColor}
+                            IconColor={
+                                borderWidthColor === 'white' ? (
+                                    'black'
+                                ) : (
+                                    borderWidthColor
+                                )
+                            }
+                        />
                         <İtemText title={objective} />
                     </View>
-                    <View>
-                        <İtemTitle title={'Experience'} onPress={ExperienceVisiblePress} />
+                    <View style={{ marginTop: 7 }}>
+                        <İtemTitle
+                            title={'Experience'}
+                            onPress={ExperienceVisiblePress}
+                            IconName='briefcase'
+                            borderColor={borderWidthColor}
+                            IconColor={
+                                borderWidthColor === 'white' ? (
+                                    'black'
+                                ) : (
+                                    borderWidthColor
+                                )
+                            }
+                        />
                         {
                             experiences
                                 .map((experiences, index) => {
@@ -322,8 +434,20 @@ const PaperPage = () => {
                                 })
                         }
                     </View>
-                    <View>
-                        <İtemTitle title={'Education'} onPress={EducationVisiblePress} />
+                    <View style={{ marginTop: 7 }}>
+                        <İtemTitle
+                            title={'Education'}
+                            onPress={EducationVisiblePress}
+                            IconName='graduation-cap'
+                            borderColor={borderWidthColor}
+                            IconColor={
+                                borderWidthColor === 'white' ? (
+                                    'black'
+                                ) : (
+                                    borderWidthColor
+                                )
+                            }
+                        />
                         {
                             education
                                 .map((education, index) => {
@@ -373,14 +497,14 @@ const PaperPage = () => {
 
                     setmodalEducationVisible={setEducationVisible}
                     modalEducationVisible={educationVisible}
-                    setFieldofStudyText={setFieldofStudyText}
                     setSchoolText={setSchoolText}
+                    setFieldofStudyText={setFieldofStudyText}
                     setEducationsStartDateText={setEducationsStartDateText}
                     setEducationsEndDateText={setEducationsEndDateText}
                     EducationAddPress={AddEducation}
                 />
 
-            </View>
+            </ScrollView>
         </>
     )
 }

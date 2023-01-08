@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Lottie from 'lottie-react-native';
 
 const Home = ({ navigation }) => {
     return (
@@ -8,10 +9,17 @@ const Home = ({ navigation }) => {
             style={{
                 flex: 1,
                 alignItems: 'center',
-                justifyContent: 'space-evenly'
+                justifyContent: 'space-evenly',
+                backgroundColor: '#9EC7FF'
             }}
         >
-            <Text>Home</Text>
+            <Lottie
+                source={require('../../Component/cv-gif.json')}
+                autoPlay
+                style={{
+                    height: 220,
+                }}
+            />
             <TouchableOpacity
                 onPress={() => navigation.navigate('EditScreen')}
             >

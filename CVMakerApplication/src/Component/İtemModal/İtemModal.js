@@ -43,8 +43,8 @@ const İtemModal = ({
 
     setmodalEducationVisible,
     modalEducationVisible,
-    setFieldofStudyText,
     setSchoolText,
+    setFieldofStudyText,
     setEducationsStartDateText,
     setEducationsEndDateText,
     EducationAddPress
@@ -221,15 +221,15 @@ const İtemModal = ({
                     modalEducationVisible &&
                     <>
                         <TextInput
-                            placeholder='Field of Study'
-                            onChangeText={setFieldofStudyText}
+                            placeholder='School'
+                            onChangeText={setSchoolText}
                             placeholderTextColor={'#000'}
                             multiline={true}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}
                         />
                         <TextInput
-                            placeholder='School'
-                            onChangeText={setSchoolText}
+                            placeholder='Field of Study'
+                            onChangeText={setFieldofStudyText}
                             placeholderTextColor={'#000'}
                             multiline={true}
                             style={{ paddingVertical: 5, borderBottomWidth: 1 }}

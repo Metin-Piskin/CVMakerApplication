@@ -13,6 +13,7 @@
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
     "formik": "^2.2.9",
+    "lottie-react-native": "^5.1.4",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-image-picker": "^4.10.3",

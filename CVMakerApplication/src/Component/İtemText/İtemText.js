@@ -10,7 +10,7 @@ const İtemText = ({ title, link, git, logo, githublogo, linkedinlogo }) => {
                     <>
                         {
                             git ? (
-                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop:2 }}>
                                     <Ionicons name={githublogo} size={17} color={'#000'} />
                                     <Text
                                         style={{ marginLeft: 5 }}
@@ -21,7 +21,7 @@ const İtemText = ({ title, link, git, logo, githublogo, linkedinlogo }) => {
                                     </Text>
                                 </View>
                             ) : (
-                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop:2 }}>
                                     <Ionicons name={linkedinlogo} size={17} color={'#000'} />
                                     <Text
                                         style={{ marginLeft: 5 }}
@@ -35,7 +35,7 @@ const İtemText = ({ title, link, git, logo, githublogo, linkedinlogo }) => {
                         }
                     </>
                 ) : (
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', marginTop:2 }}>
                         <Ionicons name={logo} size={17} color={'#000'} />
                         <Text
                             style={{ marginLeft: 5 }}

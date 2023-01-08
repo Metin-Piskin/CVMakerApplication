@@ -6,7 +6,7 @@ import PaperPage from '../../Component/PaperPage';
 
 const Edit = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, backgroundColor: 'gray' }}>
+        <View style={{ flex: 1, backgroundColor: '#9EC7FF' }}>
             <TouchableOpacity
                 onPress={() => navigation.goBack()}
                 style={{

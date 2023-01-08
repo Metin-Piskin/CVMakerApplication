@@ -6,35 +6,64 @@ const ExperiencesText = ({ item }) => {
         < View style={{ marginTop: 5 }}>
             {
                 item.positionText ? (
-                    <Text> {item.positionText}</Text >
+                    <Text
+                        style={{
+                            color: '#000',
+                            fontWeight: '500',
+                            fontSize: 18,
+                            marginHorizontal: 20
+                        }}
+                    >
+                        {item.positionText}
+                    </Text >
                 ) : (
                     <></>
                 )
             }
             {
                 item.companyText ? (
-                    <Text> {item.companyText}</Text >
+                    <Text>
+                        {item.companyText}
+                    </Text >
                 ) : (
                     <></>
                 )
             }
             {
                 item.summaryText ? (
-                    <Text> {item.summaryText}</Text >
+                    <Text>
+                        {item.summaryText}
+                    </Text >
                 ) : (
                     <></>
                 )
             }
             {
                 item.experiencesStartDateText ? (
-                    <Text> {item.experiencesStartDateText}</Text >
+                    <Text
+                        style={{
+                            textAlign: 'center',
+                            right: 18
+                        }}
+                    >
+                        {item.experiencesStartDateText + ' / '}
+                    </Text >
                 ) : (
                     <></>
                 )
             }
             {
                 item.experiencesEndDateText ? (
-                    <Text> {item.experiencesEndDateText}</Text >
+                    <Text
+                        style={{
+                            justifyContent: 'flex-end',
+                            textAlign: 'center',
+                            marginTop: -24,
+                            left: 18
+                        }}
+                    >
+                        {item.experiencesEndDateText}
+                    </Text >
                 ) : (
                     <></>
                 )
