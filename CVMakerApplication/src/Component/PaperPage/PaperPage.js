@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
+
+import oneStyle from './PaperPage-onestyle';
 
 import İtemTitle from '../İtemTitle';
 import İtemText from '../İtemText';
@@ -154,13 +156,7 @@ const PaperPage = () => {
 
     return (
         <>
-            <View
-                style={{
-                    flexDirection: 'row',
-                    marginBottom: 15,
-                    paddingLeft: 5,
-                }}
-            >
+            <View style={oneStyle.colorContainer}>
                 {
                     Colorlist.map((color, index) => {
                         const BorderWidthColorSelect = () => {
@@ -176,65 +172,25 @@ const PaperPage = () => {
                     })
                 }
             </View>
-            <ScrollView
-                style={{
-                    backgroundColor: '#fff',
-                    height: 610,
-                    maxHeight: 610,
-                    borderBottomWidth: 2,
-                    borderRightWidth: 2,
-                    borderColor: borderWidthColor,
-
-                }}
-            >
-                <View
-                    style={{
-                        width: Dimensions.get('screen').width - 60,
-                        //borderBottomWidth: 2,
-                        borderColor: borderWidthColor,
-                        flexDirection: 'row',
-                        marginTop: 5,
-                        paddingVertical: 10,
-                        paddingHorizontal: 10
-                    }}
-                >
-                    <View
-                        style={{
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <View style={{
-                            flexDirection: 'row',
-                            maxWidth: Dimensions.get('screen').width - 215
-                        }}>
+            <ScrollView style={[oneStyle.pageContainer, { borderColor: borderWidthColor }]} >
+                <View style={[oneStyle.topContainer, { borderColor: borderWidthColor }]}  >
+                    <View style={oneStyle.topİnnerContainer}>
+                        <View style={oneStyle.aboutContainer}>
                             {
                                 imageGallery === null ? (
                                     <TouchableOpacity
                                         onPress={openGallery}
-                                        style={{
-                                            borderWidth: 1,
-                                            borderColor: borderWidthColor,
-                                            marginRight: 10,
-                                            marginBottom: 5
-                                        }}
+                                        style={[oneStyle.plusiİmageContainer, { borderColor: borderWidthColor }]}
                                     >
                                         <Image
                                             source={{ uri: plusimage }}
-                                            style={{
-                                                width: 125,
-                                                height: 150,
-                                            }}
+                                            style={oneStyle.image}
                                         />
                                     </TouchableOpacity>
                                 ) : (
                                     <Image
                                         source={{ uri: imageGallery.uri }}
-                                        style={{
-                                            width: 125,
-                                            height: 150,
-                                            marginRight: 10,
-                                            marginBottom: 5
-                                        }}
+                                        style={[oneStyle.image, { marginRight: 10, marginBottom: 5 }]}
                                     />
                                 )
                             }
@@ -252,15 +208,8 @@ const PaperPage = () => {
                                         )
                                     }
                                 />
-                                <View
-                                    style={{
-                                        // borderWidth: 1,
-                                        paddingRight: 45,
-                                        paddingLeft: 10,
-                                        borderRadius: 10,
-                                        borderColor: borderWidthColor,
-                                    }}
-                                >
+
+                                <View style={[oneStyle.aboutTextContainer, { borderColor: borderWidthColor }]}>
                                     <View style={{ alignItems: 'center' }}>
                                         <İtemText title={name + ' ' + surname} />
                                     </View>
@@ -272,19 +221,8 @@ const PaperPage = () => {
                                 </View>
                             </View>
                         </View>
-                        <View
-                            style={{
-                                flexDirection: 'row',
-                                justifyContent: 'space-around',
-                                width: Dimensions.get('screen').width - 78,
-                            }}
-                        >
-                            <View
-                                style={{
-                                    width: Dimensions.get('screen').width / 2 - 43,
-                                    marginTop: 7
-                                }}
-                            >
+                        <View style={oneStyle.skillsAndlanguageAllContainer}>
+                            <View style={oneStyle.skillsAndlanguageContainer}>
                                 <İtemTitle
                                     title={'Skills'}
                                     onPress={SkillsVisiblePress}
@@ -298,34 +236,14 @@ const PaperPage = () => {
                                         )
                                     }
                                 />
-                                <View
-                                    style={{
-                                        flexDirection: 'row',
-                                        alignItems: 'center',
-                                        flexWrap: 'wrap',
-                                    }}
-                                >
+                                <View style={oneStyle.skillsAndlanguageListContainer}>
                                     {
                                         skills.map((skills, index) => {
                                             return (
                                                 <View
                                                     key={index}
-                                                    style={{
-                                                        flexDirection: 'row',
-                                                    }}
+                                                    style={oneStyle.skillsAndlanguageListİnnerContainer}
                                                 >
-                                                    <Text
-                                                        style={{
-                                                            color: '#000',
-                                                            fontSize: 35,
-                                                            fontWeight: 'bold',
-                                                            marginVertical: -22,
-                                                            marginLeft: 5,
-                                                            marginRight: -3
-                                                        }}
-                                                    >
-                                                        .
-                                                    </Text>
                                                     <İtemText title={skills} />
                                                 </View>
                                             )
@@ -333,12 +251,7 @@ const PaperPage = () => {
                                     }
                                 </View>
                             </View>
-                            <View
-                                style={{
-                                    width: Dimensions.get('screen').width / 2 - 43,
-                                    marginTop: 7
-                                }}
-                            >
+                            <View style={oneStyle.skillsAndlanguageContainer}>
                                 <İtemTitle
                                     title={'Language'}
                                     onPress={LanguageVisiblePress}
@@ -352,34 +265,14 @@ const PaperPage = () => {
                                         )
                                     }
                                 />
-                                <View
-                                    style={{
-                                        flexDirection: 'row',
-                                        alignItems: 'center',
-                                        flexWrap: 'wrap',
-                                    }}
-                                >
+                                <View style={oneStyle.skillsAndlanguageListContainer}>
                                     {
                                         language.map((language, index) => {
                                             return (
                                                 <View
                                                     key={index}
-                                                    style={{
-                                                        flexDirection: 'row',
-                                                    }}
+                                                    style={oneStyle.skillsAndlanguageListİnnerContainer}
                                                 >
-                                                    <Text
-                                                        style={{
-                                                            color: '#000',
-                                                            fontSize: 35,
-                                                            fontWeight: 'bold',
-                                                            marginVertical: -22,
-                                                            marginLeft: 5,
-                                                            marginRight: -3
-                                                        }}
-                                                    >
-                                                        .
-                                                    </Text>
                                                     <İtemText title={language} />
                                                 </View>
                                             )
@@ -390,13 +283,7 @@ const PaperPage = () => {
                         </View>
                     </View>
                 </View>
-                <View
-                    style={{
-                        width: Dimensions.get('screen').width - 75,
-                        paddingLeft: 10,
-                        paddingBottom: 8
-                    }}
-                >
+                <View style={oneStyle.bottomContainer} >
                     <View >
                         <İtemTitle
                             title={'Objective'}
@@ -413,7 +300,7 @@ const PaperPage = () => {
                         />
                         <İtemText title={objective} />
                     </View>
-                    <View style={{ marginTop: 7 }}>
+                    <View style={oneStyle.experienceAndeducationContainer}>
                         <İtemTitle
                             title={'Experience'}
                             onPress={ExperienceVisiblePress}
@@ -434,7 +321,7 @@ const PaperPage = () => {
                                 })
                         }
                     </View>
-                    <View style={{ marginTop: 7 }}>
+                    <View style={oneStyle.experienceAndeducationContainer}>
                         <İtemTitle
                             title={'Education'}
                             onPress={EducationVisiblePress}

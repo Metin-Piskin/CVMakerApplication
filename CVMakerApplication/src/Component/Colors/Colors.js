@@ -1,20 +1,15 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
+import styles from './Colors-style';
+
 const Colors = ({ color, onPress }) => {
     return (
         <TouchableOpacity
-            style={{
-                paddingLeft: 4
-            }}
+            style={styles.colorsContainer}
             onPress={onPress}
         >
-            <Text
-                style={{
-                    fontSize: 25,
-                    color: color.value
-                }}
-            >
+            <Text style={[styles.colors, { color: color.value }]}>
                 {color.label}
             </Text>
         </TouchableOpacity>

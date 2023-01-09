@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Modal, TextInput } from 'react-native';
 
-import ModalButton from '../ModalButton';
+import styles from './İtemModal-style';
+import CutomButton from '../CutomButton';
 
 const İtemModal = ({
     visible,
@@ -64,25 +65,7 @@ const İtemModal = ({
             transparent={true}
             visible={visible}
         >
-            <View
-                style={{
-                    backgroundColor: '#fff',
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    position: 'absolute',
-                    //width: Dimensions.get('screen').width / 1.06,
-                    //height: Dimensions.get('screen').height / 4,
-                    marginHorizontal: 10,
-                    paddingHorizontal: 15,
-                    paddingVertical: 10,
-                    borderTopLeftRadius: 10,
-                    borderTopRightRadius: 10,
-                    borderLeftWidth: 1,
-                    borderRightWidth: 1,
-                    borderTopWidth: 1
-                }}
-            >
+            <View style={styles.modalContainer}>
                 {
                     modalAboutVisible &&
                     <>
@@ -90,31 +73,31 @@ const İtemModal = ({
                             placeholder='Name'
                             onChangeText={setName}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         < TextInput
                             placeholder='Surname'
                             onChangeText={setSurname}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='City'
                             onChangeText={setCity}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Country'
                             onChangeText={setCountry}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Email'
                             onChangeText={setEmail}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                             keyboardType='email-address'
                             textContentType='emailAddress'
                         />
@@ -122,7 +105,7 @@ const İtemModal = ({
                             placeholder='TelNo'
                             onChangeText={setTelNo}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                             keyboardType='numeric'
                             maxLength={11}
                         />
@@ -130,13 +113,13 @@ const İtemModal = ({
                             placeholder='Linkedin'
                             onChangeText={setLinkedin}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Github'
                             onChangeText={setGithub}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                     </>
                 }
@@ -147,9 +130,9 @@ const İtemModal = ({
                             placeholder='Skills'
                             onChangeText={setSkills}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
-                        <ModalButton title={'Skills Add'} onPress={SkillsAddPress} />
+                        <CutomButton title={'Skills Add'} onPress={SkillsAddPress} />
                     </>
                 }
                 {
@@ -159,9 +142,9 @@ const İtemModal = ({
                             placeholder='Language'
                             onChangeText={setLanguage}
                             placeholderTextColor={'#000'}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
-                        <ModalButton title={'Language Add'} onPress={LanguageAddPress} />
+                        <CutomButton title={'Language Add'} onPress={LanguageAddPress} />
                     </>
                 }
                 {
@@ -172,7 +155,7 @@ const İtemModal = ({
                             onChangeText={setObjective}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                     </>
                 }
@@ -184,37 +167,37 @@ const İtemModal = ({
                             onChangeText={setPositionText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Company'
                             onChangeText={setCompanyText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Summary'
                             onChangeText={setSummaryText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Start Date'
                             onChangeText={setExperiencesStartDateText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='End Date'
                             onChangeText={setExperiencesEndDateText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
-                        <ModalButton title={'Experience Add'} onPress={ExperienceAddPress} />
+                        <CutomButton title={'Experience Add'} onPress={ExperienceAddPress} />
                     </>
                 }
                 {
@@ -225,33 +208,35 @@ const İtemModal = ({
                             onChangeText={setSchoolText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Field of Study'
                             onChangeText={setFieldofStudyText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='Start Date'
                             onChangeText={setEducationsStartDateText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
                         <TextInput
                             placeholder='End Date'
                             onChangeText={setEducationsEndDateText}
                             placeholderTextColor={'#000'}
                             multiline={true}
-                            style={{ paddingVertical: 5, borderBottomWidth: 1 }}
+                            style={styles.textInputs}
                         />
-                        <ModalButton title={'Education Add'} onPress={EducationAddPress} />
+                        <CutomButton title={'Education Add'} onPress={EducationAddPress} />
                     </>
                 }
-                <ModalButton title={'Close'} onPress={CloseModal} />
+                <View style={styles.modalCloseButtonContainer}>
+                    <CutomButton icon={true} onPress={CloseModal} />
+                </View>
             </View>
         </Modal>
     )
