@@ -10,8 +10,13 @@ export default StyleSheet.create({
         marginTop: 7,
         marginLeft: 8
     },
-    paperpagecontainer:{
+    paperpagecontainer: {
         alignItems: 'center',
         marginTop: 5,
+    },
+    pdfdownloadcontainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop:7
     }
 })

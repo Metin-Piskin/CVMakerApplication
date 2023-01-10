@@ -3,13 +3,15 @@ import { TouchableOpacity, View } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 import styles from './Edit-style';
-import PaperPage from '../../Component/PaperPage';
 
-const Edit = ({ navigation }) => {
+import PaperPage from '../../Component/PaperPage/PaperPage';
+
+const Edit = (props) => {
+    const { item } = props.route.params;
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => navigation.goBack()}
+                onPress={() => props.navigation.goBack()}
                 style={styles.backbuttoncontainer}
             >
                 <FontAwesome5
@@ -18,9 +20,18 @@ const Edit = ({ navigation }) => {
                     color={'#fff'}
                 />
             </TouchableOpacity>
-            <View style={styles.paperpagecontainer} >
-                <PaperPage />
+            <View style={styles.paperpagecontainer}>
+                <PaperPage item={item} />
             </View>
+            <TouchableOpacity
+                style={styles.pdfdownloadcontainer}
+            >
+                <FontAwesome5
+                    name='cloud-download-alt'
+                    size={30}
+                    color={'#fff'}
+                />
+            </TouchableOpacity>
         </View>
     )
 }

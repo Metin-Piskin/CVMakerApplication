@@ -10,7 +10,17 @@ export default StyleSheet.create({
     gif: {
         height: 220,
     },
-    innerContainer:{
-        flexDirection: 'row'
+    innerContainer: {
+    },
+    styleButton: {
+        flexDirection: 'row',
+        alignItems: "center",
+        paddingTop: 10
+    },
+    styleText: {
+        color: '#fff',
+        fontSize: 28,
+        marginLeft: 5,
+        fontFamily: 'Caveat-VariableFont_wght'
     }
 })

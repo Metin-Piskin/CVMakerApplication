@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 
-import oneStyle from './PaperPage-onestyle';
-
 import İtemTitle from '../İtemTitle';
 import İtemText from '../İtemText';
 import İtemModal from '../İtemModal';
@@ -14,7 +12,7 @@ import Colorlist from '../Colorlist.json';
 
 const plusimage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/1707px-Plus_symbol.svg.png';
 
-const PaperPage = () => {
+const PaperPage = ({ item }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const [aboutVisible, setAboutVisible] = useState(false);
@@ -156,7 +154,7 @@ const PaperPage = () => {
 
     return (
         <>
-            <View style={oneStyle.colorContainer}>
+            <View style={item.colorContainer}>
                 {
                     Colorlist.map((color, index) => {
                         const BorderWidthColorSelect = () => {
@@ -172,25 +170,25 @@ const PaperPage = () => {
                     })
                 }
             </View>
-            <ScrollView style={[oneStyle.pageContainer, { borderColor: borderWidthColor }]} >
-                <View style={[oneStyle.topContainer, { borderColor: borderWidthColor }]}  >
-                    <View style={oneStyle.topİnnerContainer}>
-                        <View style={oneStyle.aboutContainer}>
+            <ScrollView style={[item.pageContainer, { borderColor: borderWidthColor }]} >
+                <View style={[item.topContainer, { borderColor: borderWidthColor }]}  >
+                    <View style={item.topİnnerContainer}>
+                        <View style={item.aboutContainer}>
                             {
                                 imageGallery === null ? (
                                     <TouchableOpacity
                                         onPress={openGallery}
-                                        style={[oneStyle.plusiİmageContainer, { borderColor: borderWidthColor }]}
+                                        style={[item.plusiİmageContainer, { borderColor: borderWidthColor }]}
                                     >
                                         <Image
                                             source={{ uri: plusimage }}
-                                            style={oneStyle.image}
+                                            style={item.image}
                                         />
                                     </TouchableOpacity>
                                 ) : (
                                     <Image
                                         source={{ uri: imageGallery.uri }}
-                                        style={[oneStyle.image, { marginRight: 10, marginBottom: 5 }]}
+                                        style={[item.image, { marginRight: 10, marginBottom: 5 }]}
                                     />
                                 )
                             }
@@ -209,7 +207,7 @@ const PaperPage = () => {
                                     }
                                 />
 
-                                <View style={[oneStyle.aboutTextContainer, { borderColor: borderWidthColor }]}>
+                                <View style={[item.aboutTextContainer, { borderColor: borderWidthColor }]}>
                                     <View style={{ alignItems: 'center' }}>
                                         <İtemText title={name + ' ' + surname} />
                                     </View>
@@ -221,8 +219,8 @@ const PaperPage = () => {
                                 </View>
                             </View>
                         </View>
-                        <View style={oneStyle.skillsAndlanguageAllContainer}>
-                            <View style={oneStyle.skillsAndlanguageContainer}>
+                        <View style={item.skillsAndlanguageAllContainer}>
+                            <View style={item.skillsAndlanguageContainer}>
                                 <İtemTitle
                                     title={'Skills'}
                                     onPress={SkillsVisiblePress}
@@ -236,13 +234,13 @@ const PaperPage = () => {
                                         )
                                     }
                                 />
-                                <View style={oneStyle.skillsAndlanguageListContainer}>
+                                <View style={item.skillsAndlanguageListContainer}>
                                     {
                                         skills.map((skills, index) => {
                                             return (
                                                 <View
                                                     key={index}
-                                                    style={oneStyle.skillsAndlanguageListİnnerContainer}
+                                                    style={item.skillsAndlanguageListİnnerContainer}
                                                 >
                                                     <İtemText title={skills} />
                                                 </View>
@@ -251,7 +249,7 @@ const PaperPage = () => {
                                     }
                                 </View>
                             </View>
-                            <View style={oneStyle.skillsAndlanguageContainer}>
+                            <View style={item.skillsAndlanguageContainer}>
                                 <İtemTitle
                                     title={'Language'}
                                     onPress={LanguageVisiblePress}
@@ -265,13 +263,13 @@ const PaperPage = () => {
                                         )
                                     }
                                 />
-                                <View style={oneStyle.skillsAndlanguageListContainer}>
+                                <View style={item.skillsAndlanguageListContainer}>
                                     {
                                         language.map((language, index) => {
                                             return (
                                                 <View
                                                     key={index}
-                                                    style={oneStyle.skillsAndlanguageListİnnerContainer}
+                                                    style={item.skillsAndlanguageListİnnerContainer}
                                                 >
                                                     <İtemText title={language} />
                                                 </View>
@@ -283,7 +281,7 @@ const PaperPage = () => {
                         </View>
                     </View>
                 </View>
-                <View style={oneStyle.bottomContainer} >
+                <View style={item.bottomContainer} >
                     <View >
                         <İtemTitle
                             title={'Objective'}
@@ -300,7 +298,7 @@ const PaperPage = () => {
                         />
                         <İtemText title={objective} />
                     </View>
-                    <View style={oneStyle.experienceAndeducationContainer}>
+                    <View style={item.experienceAndeducationContainer}>
                         <İtemTitle
                             title={'Experience'}
                             onPress={ExperienceVisiblePress}
@@ -321,7 +319,7 @@ const PaperPage = () => {
                                 })
                         }
                     </View>
-                    <View style={oneStyle.experienceAndeducationContainer}>
+                    <View style={item.experienceAndeducationContainer}>
                         <İtemTitle
                             title={'Education'}
                             onPress={EducationVisiblePress}
