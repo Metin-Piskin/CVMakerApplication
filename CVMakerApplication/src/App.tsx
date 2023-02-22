@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
     StyleSheet,
-    Text, View,
+    Text,
+    View,
     StatusBar,
     ScrollView,
     TouchableOpacity,
@@ -10,6 +11,13 @@ import {
 
 import İnputBox from './Component/İnputBox';
 import İnput from './Component/İnput';
+import PlusButton from './Component/PlusButton';
+import Skills from './Component/Skills';
+import EducationsBox from './Component/EducationsBox';
+import ProjectsBox from './Component/ProjectsBox';
+import ExperiencesBox from './Component/ExperiencesBox';
+
+import LinkData from './LinkData.json';
 
 const App = () => {
     const [aboutModalVisible, setAboutModalVisible] = useState<boolean>(false);
@@ -19,6 +27,18 @@ const App = () => {
     const [experiencesModalVisible, setExperiencesModalVisible] = useState<boolean>(false);
     const [link, setLink] = useState<Array<any>>([]);
 
+    const [toolsSkillsText, setToolsSkillsText] = useState<Array<any>>([]);
+    const [toolsSkills, setToolsSkills] = useState<Array<any>>([]);
+
+    const [industryKnowledgeText, setIndustryKnowledgeText] = useState<Array<any>>([]);
+    const [industryKnowledge, setIndustryKnowledge] = useState<Array<any>>([]);
+
+    const [languagesText, setLanguagesText] = useState<Array<any>>([]);
+    const [languages, setLanguages] = useState<Array<any>>([]);
+
+    const [educationsBox, setEducationsBox] = useState<Array<any>>([]);
+    const [projectsBox, setProjectsBox] = useState<Array<any>>([]);
+    const [experiencesBox, setExperiencesBox] = useState<Array<any>>([]);
 
     return (
         <ScrollView>
@@ -121,15 +141,78 @@ const App = () => {
                         <İnput
                             TextName='Tools and Tech Skills'
                             placeholder='Tools and Tech Skills'
+                            onChangeText={setToolsSkillsText}
                         />
+                        <View style={styles.skillslistcontainer}>
+                            {
+                                toolsSkills.map((e, index) => {
+                                    return (
+                                        <Skills
+                                            key={index}
+                                            title={e}
+                                            containerColor='#CEE4FE'
+                                            titleColor='#2E4D96'
+                                            iconColor='#63A7FA'
+                                        />
+                                    )
+                                })
+                            }
+                        </View>
+                        <PlusButton
+                            addPress={() => setToolsSkills([...toolsSkills, toolsSkillsText])}
+                            title='Add'
+                        />
+
                         <İnput
                             TextName='Industry Knowledge'
                             placeholder='What is your job?'
+                            onChangeText={setIndustryKnowledgeText}
                         />
+                        <View style={styles.skillslistcontainer}>
+                            {
+                                industryKnowledge.map((e, index) => {
+                                    return (
+                                        <Skills
+                                            key={index}
+                                            title={e}
+                                            containerColor='#E5DFFE'
+                                            titleColor='#552099'
+                                            iconColor='#AA8DFA'
+                                        />
+                                    )
+                                })
+                            }
+                        </View>
+                        <PlusButton
+                            addPress={() => setIndustryKnowledge([...industryKnowledge, industryKnowledgeText])}
+                            title='Add'
+                        />
+
                         <İnput
                             TextName='Languages'
                             placeholder='Where do you live?'
+                            onChangeText={setLanguagesText}
                         />
+                        <View style={styles.skillslistcontainer}>
+                            {
+                                languages.map((e, index) => {
+                                    return (
+                                        <Skills
+                                            key={index}
+                                            title={e}
+                                            containerColor='#FED9DD'
+                                            titleColor='#8C153C'
+                                            iconColor='#FB7487'
+                                        />
+                                    )
+                                })
+                            }
+                        </View>
+                        <PlusButton
+                            addPress={() => setLanguages([...languages, languagesText])}
+                            title='Add'
+                        />
+
                     </View>
                 }
             />
@@ -139,7 +222,19 @@ const App = () => {
                 ModalVisible={educationsModalVisible}
                 Modalİtem={
                     <View>
-                        <Text>Button</Text>
+                        {
+                            educationsBox.map((e, index) => {
+                                return (
+                                    <EducationsBox
+                                        key={index}
+                                    />
+                                )
+                            })
+                        }
+                        <PlusButton
+                            plus={true}
+                            plusPress={() => setEducationsBox([...educationsBox, +1])}
+                        />
                     </View>
                 }
             />
@@ -149,7 +244,19 @@ const App = () => {
                 ModalVisible={projectsModalVisible}
                 Modalİtem={
                     <View>
-                        <Text>Button</Text>
+                        {
+                            projectsBox.map((e, index) => {
+                                return (
+                                    <ProjectsBox
+                                        key={index}
+                                    />
+                                )
+                            })
+                        }
+                        <PlusButton
+                            plus={true}
+                            plusPress={() => setProjectsBox([...projectsBox, +1])}
+                        />
                     </View>
                 }
             />
@@ -159,7 +266,19 @@ const App = () => {
                 ModalVisible={experiencesModalVisible}
                 Modalİtem={
                     <View>
-                        <Text>Button</Text>
+                        {
+                            experiencesBox.map((e, index) => {
+                                return (
+                                    <ExperiencesBox
+                                        key={index}
+                                    />
+                                )
+                            })
+                        }
+                        <PlusButton
+                            plus={true}
+                            plusPress={() => setExperiencesBox([...experiencesBox, +1])}
+                        />
                     </View>
                 }
             />
@@ -204,35 +323,11 @@ const styles = StyleSheet.create({
         //fontSize: 17,
         //color: '#fff'
     },
+    skillslistcontainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+        gap: 3,
+        marginVertical: 5
+    }
 })
-
-const LinkData = [
-    {
-        title: 'Mail',
-        value: 'Mail'
-    },
-    {
-        title: 'Portfolio',
-        value: 'Portfolio'
-    },
-    {
-        title: 'Github',
-        value: 'Github'
-    },
-    {
-        title: 'Twitter',
-        value: 'Twitter'
-    },
-    {
-        title: 'LinkedIn',
-        value: 'LinkedIn'
-    },
-    {
-        title: 'Instagram',
-        value: 'Instagram'
-    },
-    {
-        title: 'Facebook',
-        value: 'Facebook'
-    },
-]
