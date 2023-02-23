@@ -7,7 +7,9 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'center',
         padding: 2,
-        borderRadius: 20
+        borderRadius: 20,
+        backgroundColor: '#10A8EA',
+        borderColor: '#129FDE'
     },
     addcontainer: {
         borderWidth: 1,
@@ -15,6 +17,10 @@ export default StyleSheet.create({
         paddingHorizontal: 45,
         paddingVertical: 5,
         borderRadius: 5,
-        marginVertical: 7
+        marginVertical: 7,
+        //borderColor: '#D2D8DD'
+    },
+    addtitle: {
+        fontWeight: '500'
     }
 })

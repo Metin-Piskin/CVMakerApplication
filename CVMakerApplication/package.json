@@ -17,6 +17,7 @@
     "react-native": "0.71.3",
     "react-native-file-viewer": "^2.1.5",
     "react-native-html-to-pdf": "^0.12.0",
+    "react-native-image-picker": "^5.1.0",
     "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {

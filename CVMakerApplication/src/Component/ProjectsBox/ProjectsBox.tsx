@@ -4,10 +4,22 @@ import { View, Text, TextInput } from 'react-native';
 import styles from './ProjectsBox-style';
 
 interface ProjectsBoxProps {
-    onChangeText?: any;
+    ProjectTitleonChangeText?: any;
+    ProjectTitlevalue?: any;
+    ProjectLinkonChangeText?: any;
+    ProjectLinkvalue?: any;
+    ProjectSummaryonChangeText?: any;
+    ProjectSummaryvalue?: any;
 }
 
-const ProjectsBox: FC<ProjectsBoxProps> = ({ onChangeText }) => {
+const ProjectsBox: FC<ProjectsBoxProps> = ({
+    ProjectTitleonChangeText,
+    ProjectTitlevalue,
+    ProjectLinkonChangeText,
+    ProjectLinkvalue,
+    ProjectSummaryonChangeText,
+    ProjectSummaryvalue
+}) => {
     return (
         <View style={styles.container}>
             <View style={styles.innercontainer}>
@@ -17,7 +29,8 @@ const ProjectsBox: FC<ProjectsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='Project name'
-                    onChangeText={onChangeText}
+                    onChangeText={ProjectTitleonChangeText}
+                    value={ProjectTitlevalue}
                 />
             </View>
             <View style={styles.innercontainer}>
@@ -27,7 +40,8 @@ const ProjectsBox: FC<ProjectsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='Project Link'
-                    onChangeText={onChangeText}
+                    onChangeText={ProjectLinkonChangeText}
+                    value={ProjectLinkvalue}
                 />
             </View>
             <View style={styles.innercontainer}>
@@ -37,7 +51,8 @@ const ProjectsBox: FC<ProjectsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='Project description'
-                    onChangeText={onChangeText}
+                    onChangeText={ProjectSummaryonChangeText}
+                    value={ProjectSummaryvalue}
                     multiline={true}
                 />
             </View>

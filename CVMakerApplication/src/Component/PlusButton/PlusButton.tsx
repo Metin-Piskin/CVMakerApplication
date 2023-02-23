@@ -8,10 +8,13 @@ interface PlusButtonProps {
     plus?: boolean;
     plusPress?: () => void;
     addPress?: () => void;
-    title?: string
+    title?: string;
+    titleColor?: string;
+    backgroundColor?: string;
+    borderColor?: string;
 }
 
-const PlusButton: FC<PlusButtonProps> = ({ plus, plusPress, addPress, title }) => {
+const PlusButton: FC<PlusButtonProps> = ({ plus, plusPress, addPress, title, titleColor, backgroundColor, borderColor }) => {
     return (
         <>
             {
@@ -22,16 +25,16 @@ const PlusButton: FC<PlusButtonProps> = ({ plus, plusPress, addPress, title }) =
                     >
                         <Entypo
                             name='plus'
-                            color={'#000'}
+                            color={'#fff'}
                             size={33}
                         />
                     </TouchableOpacity >
                 ) : (
                     <TouchableOpacity
-                        style={styles.addcontainer}
+                        style={[styles.addcontainer, { backgroundColor: backgroundColor, borderColor: borderColor }]}
                         onPress={addPress}
                     >
-                        <Text>
+                        <Text style={[styles.addtitle, { color: titleColor }]}>
                             {title}
                         </Text>
                     </TouchableOpacity>

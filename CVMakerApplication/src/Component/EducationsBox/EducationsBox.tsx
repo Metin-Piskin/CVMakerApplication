@@ -4,10 +4,26 @@ import { View, Text, TextInput } from 'react-native';
 import styles from './EducationsBox-style';
 
 interface EducationsBoxProps {
-    onChangeText?: any;
+    studyonChangeText?: any;
+    studyvalue?: any;
+    SchoolonChangeText?: any;
+    Schoolvalue?: any;
+    StartonChangeText?: any;
+    Startvalue?: any;
+    EndonChangeText?: any;
+    Endvalue?: any;
 }
 
-const EducationsBox: FC<EducationsBoxProps> = ({ onChangeText }) => {
+const EducationsBox: FC<EducationsBoxProps> = ({
+    studyonChangeText,
+    studyvalue,
+    SchoolonChangeText,
+    Schoolvalue,
+    StartonChangeText,
+    Startvalue,
+    EndonChangeText,
+    Endvalue
+}) => {
     return (
         <View style={styles.container}>
             <View style={styles.innercontainer}>
@@ -17,7 +33,8 @@ const EducationsBox: FC<EducationsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='Ex: Computer Science'
-                    onChangeText={onChangeText}
+                    onChangeText={studyonChangeText}
+                    value={studyvalue}
                 />
             </View>
             <View style={styles.innercontainer}>
@@ -27,7 +44,8 @@ const EducationsBox: FC<EducationsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='School Name'
-                    onChangeText={onChangeText}
+                    onChangeText={SchoolonChangeText}
+                    value={Schoolvalue}
                 />
             </View>
             <View style={styles.innercontainer}>
@@ -37,7 +55,8 @@ const EducationsBox: FC<EducationsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='When did you start school?'
-                    onChangeText={onChangeText}
+                    onChangeText={StartonChangeText}
+                    value={Startvalue}
                 />
             </View>
             <View style={styles.innercontainer}>
@@ -47,7 +66,8 @@ const EducationsBox: FC<EducationsBoxProps> = ({ onChangeText }) => {
                 <TextInput
                     style={styles.input}
                     placeholder='When did you graduate from school?'
-                    onChangeText={onChangeText}
+                    onChangeText={EndonChangeText}
+                    value={Endvalue}
                 />
             </View>
         </View>
