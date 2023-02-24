@@ -6,7 +6,7 @@ import {
     StatusBar,
     ScrollView,
     TouchableOpacity,
-    Image
+    Image,
 } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { Formik } from 'formik';
@@ -27,7 +27,11 @@ const App = () => {
     const [educationsModalVisible, setEducationsModalVisible] = useState<boolean>(false);
     const [projectsModalVisible, setProjectsModalVisible] = useState<boolean>(false);
     const [experiencesModalVisible, setExperiencesModalVisible] = useState<boolean>(false);
-    const [link, setLink] = useState<Array<any>>([]);
+    const [InputLink, setInputLink] = useState<Array<any>>([]);
+
+    const [imageGallery, setImageGallery] = useState<any>(null);
+
+    const [Link, setLink] = useState<any>();
 
     const [toolsSkillsText, setToolsSkillsText] = useState<Array<any>>([]);
     const [toolsSkills, setToolsSkills] = useState<Array<any>>([]);
@@ -38,11 +42,16 @@ const App = () => {
     const [languagesText, setLanguagesText] = useState<Array<any>>([]);
     const [languages, setLanguages] = useState<Array<any>>([]);
 
-    const [educationsBox, setEducationsBox] = useState<Array<any>>([]);
-    const [projectsBox, setProjectsBox] = useState<Array<any>>([]);
-    const [experiencesBox, setExperiencesBox] = useState<Array<any>>([]);
+    const [educationsFormData, setEducationsFormData] = useState<Array<any>>([]);
+    const [projectsFormData, setProjectsFormData] = useState<Array<any>>([]);
+    const [experiencesFormData, setExperiencesFormData] = useState<Array<any>>([]);
 
-    const [imageGallery, setImageGallery] = useState<any>(null);
+    const initialFormValues = {
+        NameSurname: '',
+        Job: '',
+        Location: '',
+        About: '',
+    }
 
     const openGallery = () => {
         const option: any = {
@@ -64,40 +73,76 @@ const App = () => {
         })
     }
 
-    const initialFormValues = {
-        NameSurname: '',
-        Job: '',
-        Location: '',
-        About: '',
-        Link: '',
-
-        toolsSkills: toolsSkills,
-        industryKnowledge: industryKnowledge,
-        languages: languages,
-
-        studyonChangeText: '',
-        SchoolonChangeText: '',
-        StartonChangeText: '',
-        EndonChangeText: '',
-
-        ProjectTitleonChangeText: '',
-        ProjectLinkonChangeText: '',
-        ProjectSummaryonChangeText: '',
-
-        PositiononChangeText: '',
-        CompanyonChangeText: '',
-        SummaryonChangeText: '',
-        StartdateonChangeText: '',
-        EnddateonChangeText: '',
-    };
-
     const handleFormSubmit = async (formValues: any) => {
-        console.log(formValues.studyonChangeText)
+        console.log(imageGallery.uri)
+
+        console.log(formValues.NameSurname)
+        console.log(formValues.Job)
+        console.log(formValues.Location)
+        console.log(formValues.About)
+        console.log(Link)
+
+        console.log(toolsSkills)
+        console.log(industryKnowledge)
+        console.log(languages)
+
+        console.log(educationsFormData)
+        console.log(projectsFormData)
+        console.log(experiencesFormData)
+    }
+
+
+    const EducationsAddForm = () => {
+        const newForm = {
+            studyon: '',
+            school: '',
+            educationsStart: '',
+            educationsEnd: ''
+        };
+        setEducationsFormData([...educationsFormData, newForm]);
+    }
+
+    const HandleEducationsFormChange = (index: any, field: any, value: any) => {
+        const updatedFormData: any = [...educationsFormData];
+        updatedFormData[index][field] = value;
+        setEducationsFormData(updatedFormData);
+    }
+
+    const ProjectsAddForm = () => {
+        const newForm = {
+            ProjectTitl: '',
+            ProjectLink: '',
+            ProjectSummaryon: '',
+        };
+        setProjectsFormData([...projectsFormData, newForm]);
+    }
+
+    const HandleProjectsFormChange = (index: any, field: any, value: any) => {
+        const updatedFormData: any = [...projectsFormData];
+        updatedFormData[index][field] = value;
+        setProjectsFormData(updatedFormData);
+    }
+
+    const ExperiencesAddForm = () => {
+        const newForm = {
+            Positionon: '',
+            Companyon: '',
+            Summaryon: '',
+            ExperiencesStart: '',
+            ExperiencesEnd: ''
+        };
+        setExperiencesFormData([...experiencesFormData, newForm]);
+    }
+
+    const HandleExperiencesFormChange = (index: any, field: any, value: any) => {
+        const updatedFormData: any = [...experiencesFormData];
+        updatedFormData[index][field] = value;
+        setExperiencesFormData(updatedFormData);
     }
 
 
     return (
-        <ScrollView style={{ backgroundColor: '#E0EDF6' }}>
+        <ScrollView style={styles.container}>
             <StatusBar
                 backgroundColor={'#E0EDF6'}
                 barStyle={'dark-content'}
@@ -125,9 +170,8 @@ const App = () => {
             <Formik
                 initialValues={initialFormValues}
                 onSubmit={handleFormSubmit}
-                validateOnMount={true}
             >
-                {({ values, handleChange, handleSubmit, isValid }) => (
+                {({ values, handleChange, handleSubmit }) => (
                     <>
                         <İnputBox
                             title='About Yourself'
@@ -168,12 +212,12 @@ const App = () => {
                                                 const HandleMalzeme = (value: string) => {
                                                     if (tick === true) {
                                                         settick(false)
-                                                        setLink(oldValues => {
+                                                        setInputLink(oldValues => {
                                                             return oldValues.filter(fruit => fruit !== value)
                                                         })
                                                     } else {
                                                         settick(true)
-                                                        setLink([...link, value])
+                                                        setInputLink([...InputLink, value])
                                                     }
                                                 }
                                                 return (
@@ -202,14 +246,14 @@ const App = () => {
                                         }
                                     </View>
                                     {
-                                        link.map((e, index) => {
+                                        InputLink.map((e, index) => {
                                             return (
                                                 <İnput
                                                     key={index}
                                                     TextName={e}
                                                     placeholder='Only Username'
-                                                    onChangeText={handleChange('Link')}
-                                                    value={values.Link}
+                                                    onChangeText={setLink}
+                                                //value={values.Link}
                                                 />
                                             )
                                         })
@@ -317,25 +361,23 @@ const App = () => {
                             Modalİtem={
                                 <View>
                                     {
-                                        educationsBox.map((e, index) => {
-                                            return (
-                                                <EducationsBox
-                                                    key={index}
-                                                    studyonChangeText={handleChange('studyonChangeText')}
-                                                    studyvalue={values.studyonChangeText}
-                                                    SchoolonChangeText={handleChange('SchoolonChangeText')}
-                                                    Schoolvalue={values.SchoolonChangeText}
-                                                    StartonChangeText={handleChange('StartonChangeText')}
-                                                    Startvalue={values.StartonChangeText}
-                                                    EndonChangeText={handleChange('EndonChangeText')}
-                                                    Endvalue={values.EndonChangeText}
-                                                />
-                                            )
-                                        })
+                                        educationsFormData.map((form, index) => (
+                                            <EducationsBox
+                                                key={index}
+                                                studyonChangeText={(text: any) => HandleEducationsFormChange(index, 'studyon', text)}
+                                                studyvalue={form.studyon}
+                                                SchoolonChangeText={(text: any) => HandleEducationsFormChange(index, 'school', text)}
+                                                Schoolvalue={form.school}
+                                                StartonChangeText={(text: any) => HandleEducationsFormChange(index, 'educationsStart', text)}
+                                                Startvalue={form.educationsStart}
+                                                EndonChangeText={(text: any) => HandleEducationsFormChange(index, 'educationsEnd', text)}
+                                                Endvalue={form.educationsEnd}
+                                            />
+                                        ))
                                     }
                                     <PlusButton
                                         plus={true}
-                                        plusPress={() => setEducationsBox([...educationsBox, {}])}
+                                        plusPress={EducationsAddForm}
                                     />
                                 </View>
                             }
@@ -347,23 +389,21 @@ const App = () => {
                             Modalİtem={
                                 <View>
                                     {
-                                        projectsBox.map((e, index) => {
-                                            return (
-                                                <ProjectsBox
-                                                    key={index}
-                                                    ProjectTitleonChangeText={handleChange('ProjectTitleonChangeText')}
-                                                    ProjectTitlevalue={values.ProjectTitleonChangeText}
-                                                    ProjectLinkonChangeText={handleChange('ProjectLinkonChangeText')}
-                                                    ProjectLinkvalue={values.ProjectLinkonChangeText}
-                                                    ProjectSummaryonChangeText={handleChange('ProjectSummaryonChangeText')}
-                                                    ProjectSummaryvalue={values.ProjectSummaryonChangeText}
-                                                />
-                                            )
-                                        })
+                                        projectsFormData.map((form, index) => (
+                                            <ProjectsBox
+                                                key={index}
+                                                ProjectTitleonChangeText={(text: any) => HandleProjectsFormChange(index, 'ProjectTitl', text)}
+                                                ProjectTitlevalue={form.ProjectTitl}
+                                                ProjectLinkonChangeText={(text: any) => HandleProjectsFormChange(index, 'ProjectLink', text)}
+                                                ProjectLinkvalue={form.ProjectLink}
+                                                ProjectSummaryonChangeText={(text: any) => HandleProjectsFormChange(index, 'ProjectSummaryon', text)}
+                                                ProjectSummaryvalue={form.ProjectSummaryon}
+                                            />
+                                        ))
                                     }
                                     <PlusButton
                                         plus={true}
-                                        plusPress={() => setProjectsBox([...projectsBox, {}])}
+                                        plusPress={ProjectsAddForm}
                                     />
                                 </View>
                             }
@@ -375,27 +415,25 @@ const App = () => {
                             Modalİtem={
                                 <View>
                                     {
-                                        experiencesBox.map((e, index) => {
-                                            return (
-                                                <ExperiencesBox
-                                                    key={index}
-                                                    PositiononChangeText={handleChange('PositiononChangeText')}
-                                                    Positionvalue={values.PositiononChangeText}
-                                                    CompanyonChangeText={handleChange('CompanyonChangeText')}
-                                                    Companyvalue={values.CompanyonChangeText}
-                                                    SummaryonChangeText={handleChange('SummaryonChangeText')}
-                                                    Summaryvalue={values.SummaryonChangeText}
-                                                    StartdateonChangeText={handleChange('StartdateonChangeText')}
-                                                    Startdatevalue={values.StartdateonChangeText}
-                                                    EnddateonChangeText={handleChange('EnddateonChangeText')}
-                                                    Enddatevalue={values.EnddateonChangeText}
-                                                />
-                                            )
-                                        })
+                                        experiencesFormData.map((form, index) => (
+                                            <ExperiencesBox
+                                                key={index}
+                                                PositiononChangeText={(text: any) => HandleExperiencesFormChange(index, 'Positionon', text)}
+                                                Positionvalue={form.Positionon}
+                                                CompanyonChangeText={(text: any) => HandleExperiencesFormChange(index, 'Companyon', text)}
+                                                Companyvalue={form.Companyon}
+                                                SummaryonChangeText={(text: any) => HandleExperiencesFormChange(index, 'Summaryon', text)}
+                                                Summaryvalue={form.Summaryon}
+                                                StartdateonChangeText={(text: any) => HandleExperiencesFormChange(index, 'ExperiencesStart', text)}
+                                                Startdatevalue={form.ExperiencesStart}
+                                                EnddateonChangeText={(text: any) => HandleExperiencesFormChange(index, 'ExperiencesEnd', text)}
+                                                Enddatevalue={form.ExperiencesEnd}
+                                            />
+                                        ))
                                     }
                                     <PlusButton
                                         plus={true}
-                                        plusPress={() => setExperiencesBox([...experiencesBox, {}])}
+                                        plusPress={ExperiencesAddForm}
                                     />
                                 </View>
                             }
@@ -413,6 +451,9 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#E0EDF6'
+    },
     imagecontainer: {
         alignSelf: 'center',
     },
