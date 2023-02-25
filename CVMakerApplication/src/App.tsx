@@ -7,9 +7,13 @@ import {
     ScrollView,
     TouchableOpacity,
     Image,
+    Alert
 } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { Formik } from 'formik';
+import FileViewer from "react-native-file-viewer";
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 import İnputBox from './Component/İnputBox';
 import İnput from './Component/İnput';
@@ -18,8 +22,10 @@ import Skills from './Component/Skills';
 import EducationsBox from './Component/EducationsBox';
 import ProjectsBox from './Component/ProjectsBox';
 import ExperiencesBox from './Component/ExperiencesBox';
+import TemplatBox from './Component/TemplatBox';
 
-import LinkData from './LinkData.json';
+import LinkData from './Data/LinkData.json';
+import TemplatsData from './Data/TemplatsData.json';
 
 const App = () => {
     const [aboutModalVisible, setAboutModalVisible] = useState<boolean>(false);
@@ -28,6 +34,7 @@ const App = () => {
     const [projectsModalVisible, setProjectsModalVisible] = useState<boolean>(false);
     const [experiencesModalVisible, setExperiencesModalVisible] = useState<boolean>(false);
     const [InputLink, setInputLink] = useState<Array<any>>([]);
+    const [status, setStatus] = useState('1');
 
     const [imageGallery, setImageGallery] = useState<any>(null);
 
@@ -73,22 +80,52 @@ const App = () => {
         })
     }
 
-    const handleFormSubmit = async (formValues: any) => {
-        console.log(imageGallery.uri)
+    console.log(educationsFormData)
+    console.log(projectsFormData)
+    console.log(experiencesFormData)
 
-        console.log(formValues.NameSurname)
-        console.log(formValues.Job)
-        console.log(formValues.Location)
-        console.log(formValues.About)
-        console.log(Link)
+    const generatePdf = async (formValues: any) => {
+        const options = {
+            html: `
+            <img src=${imageGallery} style="width:55px;height:55px;">
+        <h1 style='margin-left: 10px;'>${formValues.NameSurname}</h1>
+        <h1 style='margin-left: 10px;'>${formValues.Job}</h1>
+        <h1 style='margin-left: 10px;'>${formValues.Location}</h1>
+        <h1 style='margin-left: 10px;'>${formValues.About}</h1>
+        ${toolsSkills.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
+        ${industryKnowledge.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
+        ${languages.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
 
-        console.log(toolsSkills)
-        console.log(industryKnowledge)
-        console.log(languages)
+        ${educationsFormData.map(e => { return `<h1 style='margin-left: 10px;'>${e.school}</h1>` })}
+        ${projectsFormData.map(e => { return `<h1 style='margin-left: 10px;'>${e.ProjectTitl}</h1>` })}
+        ${experiencesFormData.map(e => { return `<h1 style='margin-left: 10px;'>${e.Positionon}</h1>` })}
+      `,
+            fileName: formValues.NameSurname,
+            directory: "Pdf",
+        }
+        const file = await RNHTMLtoPDF.convert(options);
+        Alert.alert(
+            '✅ Kaydedildi',
+            `Pdf Konumu= ${file.filePath}
+               Pdf Adı= ${formValues.NameSurname}.pdf
+            `,
+            [
+                {
+                    text: 'Pdf Aç',
+                    onPress: () => openFile(file.filePath),
+                },
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+            ]
+        );
+    }
 
-        console.log(educationsFormData)
-        console.log(projectsFormData)
-        console.log(experiencesFormData)
+    const openFile = (filepath: any) => {
+        const path = filepath;
+        FileViewer.open(path)
     }
 
 
@@ -169,7 +206,7 @@ const App = () => {
             }
             <Formik
                 initialValues={initialFormValues}
-                onSubmit={handleFormSubmit}
+                onSubmit={generatePdf}
             >
                 {({ values, handleChange, handleSubmit }) => (
                     <>
@@ -230,9 +267,10 @@ const App = () => {
                                                                 styles.listimleç,
                                                                 tick ? {
                                                                     //borderColor: '#32cd32',
-                                                                    backgroundColor: '#000',
+                                                                    backgroundColor: '#4285F6',
+                                                                    borderColor: '#4285F6',
                                                                 } : {
-                                                                    borderColor: '#000',
+                                                                    borderColor: '#12BC84',
                                                                     //backgroundColor: '#000',
                                                                 }
                                                             ]}></View>
@@ -438,8 +476,29 @@ const App = () => {
                                 </View>
                             }
                         />
-                        <TouchableOpacity onPress={handleSubmit}>
-                            <Text>Button</Text>
+                        <View style={styles.templatscontainer}>
+                            {
+                                TemplatsData.map((e, index) => {
+                                    return (
+                                        <TemplatBox
+                                            key={index}
+                                            onPress={() => setStatus(e.value)}
+                                            status={status}
+                                            statusiki={e.value}
+                                        />
+                                    )
+                                })
+                            }
+                        </View>
+                        <TouchableOpacity
+                            onPress={handleSubmit}
+                            style={styles.download}
+                        >
+                            <FontAwesome5
+                                name='cloud-download-alt'
+                                size={35}
+                                color={'#fff'}
+                            />
                         </TouchableOpacity>
                     </>
                 )}
@@ -452,7 +511,7 @@ export default App;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#E0EDF6'
+        backgroundColor: '#E0EDF6',
     },
     imagecontainer: {
         alignSelf: 'center',
@@ -461,7 +520,9 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         resizeMode: 'contain',
-        borderRadius: 60
+        borderRadius: 60,
+        marginTop: 15,
+        marginBottom: 20
     },
     listcontainer: {
         flexDirection: 'row',
@@ -496,5 +557,19 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#D2D8DD'
+    },
+    download: {
+        backgroundColor: '#4086F6',
+        alignSelf: 'center',
+        paddingHorizontal: 30,
+        paddingVertical: 10,
+        marginVertical: 10,
+        borderRadius: 15
+    },
+    templatscontainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        marginVertical: 5
     }
 })
