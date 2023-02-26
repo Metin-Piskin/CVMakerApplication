@@ -38,8 +38,6 @@ const App = () => {
 
     const [imageGallery, setImageGallery] = useState<any>(null);
 
-    const [Link, setLink] = useState<any>();
-
     const [toolsSkillsText, setToolsSkillsText] = useState<Array<any>>([]);
     const [toolsSkills, setToolsSkills] = useState<Array<any>>([]);
 
@@ -58,6 +56,14 @@ const App = () => {
         Job: '',
         Location: '',
         About: '',
+
+        Mail: '',
+        Portfolio: '',
+        Github: '',
+        Twitter: '',
+        LinkedIn: '',
+        Instagram: '',
+        Facebook: '',
     }
 
     const openGallery = () => {
@@ -80,18 +86,27 @@ const App = () => {
         })
     }
 
-    console.log(educationsFormData)
-    console.log(projectsFormData)
-    console.log(experiencesFormData)
+    //console.log(educationsFormData)
+    //console.log(projectsFormData)
+    //console.log(experiencesFormData)
 
     const generatePdf = async (formValues: any) => {
         const options = {
             html: `
             <img src=${imageGallery} style="width:55px;height:55px;">
-        <h1 style='margin-left: 10px;'>${formValues.NameSurname}</h1>
-        <h1 style='margin-left: 10px;'>${formValues.Job}</h1>
-        <h1 style='margin-left: 10px;'>${formValues.Location}</h1>
-        <h1 style='margin-left: 10px;'>${formValues.About}</h1>
+        <h1 style='margin-left: 10px;'>Name Surname: ${formValues.NameSurname}</h1>
+        <h1 style='margin-left: 10px;'>Job: ${formValues.Job}</h1>
+        <h1 style='margin-left: 10px;'>Location: ${formValues.Location}</h1>
+        <h1 style='margin-left: 10px;'>About: ${formValues.About}</h1>
+
+        <h1 style='margin-left: 10px;'>${formValues?.Mail}</h1>
+        <h1 style='margin-left: 10px;'>${formValues?.Portfolio}</h1>
+        <h1 style='margin-left: 10px;'>${formValues?.Github}</h1>
+        <h1 style='margin-left: 10px;'>${formValues?.Twitter}</h1>
+        <h1 style='margin-left: 10px;'>${formValues?.LinkedIn}</h1>
+        <h1 style='margin-left: 10px;'>${formValues?.Instagram}</h1>
+        <h1 style='margin-left: 10px;'>${formValues?.Facebook}</h1>
+
         ${toolsSkills.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
         ${industryKnowledge.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
         ${languages.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
@@ -290,8 +305,8 @@ const App = () => {
                                                     key={index}
                                                     TextName={e}
                                                     placeholder='Only Username'
-                                                    onChangeText={setLink}
-                                                //value={values.Link}
+                                                    onChangeText={handleChange(e)}
+                                                    //value={values.e}
                                                 />
                                             )
                                         })
