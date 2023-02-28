@@ -16,7 +16,7 @@ const TemplatBox: FC<TemplatBoxProps> = ({ onPress, status, statusiki }) => {
             onPress={onPress}
         >
             <Image
-                source={require('../../download20210106213250.png')}
+                source={require('../../CvTemplats.png')}
                 style={styles.image}
             />
         </TouchableOpacity >

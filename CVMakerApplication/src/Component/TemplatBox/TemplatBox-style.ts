@@ -10,7 +10,7 @@ export default StyleSheet.create({
     },
     image: {
         width: 80,
-        height: 80,
+        height: 100,
         borderRadius: 5,
         resizeMode: 'contain'
     }

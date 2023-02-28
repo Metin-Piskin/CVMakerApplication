@@ -86,36 +86,143 @@ const App = () => {
         })
     }
 
-    //console.log(educationsFormData)
-    //console.log(projectsFormData)
-    //console.log(experiencesFormData)
-
     const generatePdf = async (formValues: any) => {
         const options = {
             html: `
-            <img src=${imageGallery} style="width:55px;height:55px;">
-        <h1 style='margin-left: 10px;'>Name Surname: ${formValues.NameSurname}</h1>
-        <h1 style='margin-left: 10px;'>Job: ${formValues.Job}</h1>
-        <h1 style='margin-left: 10px;'>Location: ${formValues.Location}</h1>
-        <h1 style='margin-left: 10px;'>About: ${formValues.About}</h1>
-
-        <h1 style='margin-left: 10px;'>${formValues?.Mail}</h1>
-        <h1 style='margin-left: 10px;'>${formValues?.Portfolio}</h1>
-        <h1 style='margin-left: 10px;'>${formValues?.Github}</h1>
-        <h1 style='margin-left: 10px;'>${formValues?.Twitter}</h1>
-        <h1 style='margin-left: 10px;'>${formValues?.LinkedIn}</h1>
-        <h1 style='margin-left: 10px;'>${formValues?.Instagram}</h1>
-        <h1 style='margin-left: 10px;'>${formValues?.Facebook}</h1>
-
-        ${toolsSkills.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
-        ${industryKnowledge.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
-        ${languages.map(e => { return `<h1 style='margin-left: 10px;'>${e}</h1>` })}
-
-        ${educationsFormData.map(e => { return `<h1 style='margin-left: 10px;'>${e.school}</h1>` })}
-        ${projectsFormData.map(e => { return `<h1 style='margin-left: 10px;'>${e.ProjectTitl}</h1>` })}
-        ${experiencesFormData.map(e => { return `<h1 style='margin-left: 10px;'>${e.Positionon}</h1>` })}
-      `,
-            fileName: formValues.NameSurname,
+            <html>
+                <head>
+                    <style>
+                        body {
+                            font-family: 'Helvetica';
+                            font-size: 12px;
+                        }
+                        table {
+                            max-width: 100%; 
+                            width: 100%;
+                            border-collapse: collapse;
+                        }
+                        td {
+                            max-width: 50%; 
+                            width: 50%;
+                            word-break: break-all;
+                            text-align: center
+                        }
+                        tr {
+                            max-width: 100%; 
+                            width: 100%;
+                        }
+                        
+                    </style>
+                </head>
+                <body>
+                    <div style='display:inline-flex; justify-content: space-around; width: 100%;  max-width: 100%; '>
+                        <img src="${imageGallery.uri}" style="width:100px;height:100px;">
+                        <div >
+                            <h3>Name Surname: ${formValues.NameSurname}</h3>
+                            <h3>Job: ${formValues.Job}</>
+                            <h3>Location: ${formValues.Location}</h3>
+                        </div>
+                        <p style="word-break: break-all; max-width: 30%;">About: ${formValues.About}</p>
+                    </div>
+                    <div align=”justify” style="style="word-break: break-all; ">
+                        ${formValues.Mail && `<a href="${formValues?.Mail}">${formValues?.Mail}</a>`}
+                        ${formValues.Portfolio && `<a href="${formValues?.Portfolio}">${formValues?.Portfolio}</a>`}
+                        ${formValues.Github && `<a href="https://github.com/${formValues?.Github}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Font_Awesome_5_brands_github.svg/1200px-Font_Awesome_5_brands_github.svg.png" style="width:10px;height:10px;">${formValues?.Github}</a>`}
+                        ${formValues.Twitter && `<a href="https://twitter.com/${formValues?.Twitter}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4n_urpJ9XpwOTdzBVbGvactwHrPagYQrTJPYjxfxLGkSyu7nJZVqRVGAeohnPgKMrnKE&usqp=CAU" style="width:10px;height:10px;">${formValues?.Twitter}</a>`}
+                        ${formValues.LinkedIn && `<a href="https://www.linkedin.com/in/${formValues?.LinkedIn}/"><img src="https://play-lh.googleusercontent.com/kMofEFLjobZy_bCuaiDogzBcUT-dz3BBbOrIEjJ-hqOabjK8ieuevGe6wlTD15QzOqw" style="width:10px;height:10px;">${formValues?.LinkedIn}</a>`}
+                        ${formValues.Instagram && `<a href="https://www.instagram.com/${formValues?.Instagram}/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" style="width:10px;height:10px;">${formValues?.Instagram}</a>`}
+                        ${formValues.Facebook && `<a href="https://www.facebook.com/${formValues?.Facebook}/"><img src="https://www.facebook.com/images/fb_icon_325x325.png" style="width:10px;height:10px;">${formValues?.Facebook}</a>`}
+                    </div>
+                    <div style='display:inline-flex; justify-content: space-around;'>
+                        <div style='max-width: 50%;  width: 50%; '>
+                            <h3 style="text-align: center; color:#FB7487;">Tools Skills</h3>
+                            <div>${toolsSkills.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+                        </div>
+                        <div style='max-width: 50%;  width: 50%; '>
+                            <h3 style="text-align: center; color:#FB7487;">Industry Knowledge</h3>
+                            <div>${industryKnowledge.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+                        </div>
+                        <div style='max-width: 50%;  width: 50%; '>
+                            <h3 style="text-align: center; color:#FB7487;">Languages</h3>
+                            <div> ${languages.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+                        </div>
+                    </div>
+                    <table border="1" border-collapse: collapse; style="max-width: 100%; width: 100%;">
+                        <h2 style="text-align: center; color:#FB7487;">Educations</h2>
+                        ${educationsFormData.map(e => {
+                return `   
+                            <table border="1" border-collapse: collapse;> 
+                                <tr>
+                                    <td>Field of studyon</td>
+                                    <td>${e.studyon}</td>
+                                </tr>
+                                <tr>
+                                    <td>School</td>
+                                    <td>${e.school}</td>
+                                </tr>
+                                <tr>
+                                    <td>Start date</td>
+                                    <td>${e.educationsStart}</td>
+                                </tr>
+                                <tr>
+                                    <td>End date</td>
+                                    <td>${e.educationsEnd}</td>
+                                </tr>
+                            </table> 
+                        ` })}
+                    </table>
+                    <table border="1" border-collapse: collapse;>
+                        <h2 style="text-align: center; color:#FB7487;">Projects</h2>
+                        ${projectsFormData.map(e => {
+                    return `
+                            <table border="1" border-collapse: collapse;> 
+                                <tr>
+                                    <td>Project Title</td>
+                                    <td>${e.ProjectTitl}</td>
+                                </tr>
+                                <tr>
+                                    <td>Project Link</td>
+                                    <td><a href="${e.ProjectLink}">${e.ProjectLink}</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Project Summaryon</td>
+                                    <td>${e.ProjectSummaryon}</td>
+                                </tr>
+                            </table> 
+                        ` })}
+                    </table>
+                        <table border="1" border-collapse: collapse;>
+                            <h2 style="text-align: center; color:#FB7487;">Experiences</h2>
+                        ${experiencesFormData.map(e => {
+                        return `
+                                <table border="1" border-collapse: collapse;> 
+                                    <tr>
+                                        <td>Positionon</td>
+                                        <td>${e.Positionon}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Companyon</td>
+                                        <td>${e.Companyon}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Summaryon</td>
+                                        <td>${e.Summaryon}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Start date</td>
+                                        <td>${e.ExperiencesStart}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>End date</td>
+                                        <td>${e.ExperiencesEnd}</td>
+                                    </tr>
+                                </table> 
+                            ` })}
+                    </table>
+                </body>
+            </html>
+         `,
+            fileName: formValues.NameSurname + 'Cv',
             directory: "Pdf",
         }
         const file = await RNHTMLtoPDF.convert(options);
@@ -306,7 +413,7 @@ const App = () => {
                                                     TextName={e}
                                                     placeholder='Only Username'
                                                     onChangeText={handleChange(e)}
-                                                    //value={values.e}
+                                                //value={values.e}
                                                 />
                                             )
                                         })
@@ -537,7 +644,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         borderRadius: 60,
         marginTop: 15,
-        marginBottom: 20
+        marginBottom: 10
     },
     listcontainer: {
         flexDirection: 'row',
