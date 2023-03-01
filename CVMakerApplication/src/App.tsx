@@ -25,7 +25,6 @@ import ExperiencesBox from './Component/ExperiencesBox';
 import TemplatBox from './Component/TemplatBox';
 
 import LinkData from './Data/LinkData.json';
-import TemplatsData from './Data/TemplatsData.json';
 
 const App = () => {
     const [aboutModalVisible, setAboutModalVisible] = useState<boolean>(false);
@@ -34,7 +33,7 @@ const App = () => {
     const [projectsModalVisible, setProjectsModalVisible] = useState<boolean>(false);
     const [experiencesModalVisible, setExperiencesModalVisible] = useState<boolean>(false);
     const [InputLink, setInputLink] = useState<Array<any>>([]);
-    const [status, setStatus] = useState('1');
+    const [status, setStatus] = useState('TemplatsBir');
 
     const [imageGallery, setImageGallery] = useState<any>(null);
 
@@ -87,10 +86,9 @@ const App = () => {
     }
 
     const generatePdf = async (formValues: any) => {
-        const options = {
-            html: `
+        const TemplatsBir = `
             <html>
-                <head>
+            <head>
                     <style>
                         body {
                             font-family: 'Helvetica';
@@ -116,7 +114,7 @@ const App = () => {
                 </head>
                 <body>
                     <div style='display:inline-flex; justify-content: space-around; width: 100%;  max-width: 100%; '>
-                        <img src="${imageGallery.uri}" style="width:100px;height:100px;">
+                        <img src="${imageGallery?.uri}" style="width:100px;height:100px;">
                         <div >
                             <h3>Name Surname: ${formValues.NameSurname}</h3>
                             <h3>Job: ${formValues.Job}</>
@@ -150,7 +148,7 @@ const App = () => {
                     <table border="1" border-collapse: collapse; style="max-width: 100%; width: 100%;">
                         <h2 style="text-align: center; color:#FB7487;">Educations</h2>
                         ${educationsFormData.map(e => {
-                return `   
+            return `   
                             <table border="1" border-collapse: collapse;> 
                                 <tr>
                                     <td>Field of studyon</td>
@@ -174,7 +172,7 @@ const App = () => {
                     <table border="1" border-collapse: collapse;>
                         <h2 style="text-align: center; color:#FB7487;">Projects</h2>
                         ${projectsFormData.map(e => {
-                    return `
+                return `
                             <table border="1" border-collapse: collapse;> 
                                 <tr>
                                     <td>Project Title</td>
@@ -194,7 +192,7 @@ const App = () => {
                         <table border="1" border-collapse: collapse;>
                             <h2 style="text-align: center; color:#FB7487;">Experiences</h2>
                         ${experiencesFormData.map(e => {
-                        return `
+                    return `
                                 <table border="1" border-collapse: collapse;> 
                                     <tr>
                                         <td>Positionon</td>
@@ -221,7 +219,204 @@ const App = () => {
                     </table>
                 </body>
             </html>
-         `,
+                `;
+        const Templatsİki = `
+                <html>
+             <head>
+             <style>
+                 body {
+                     font-family: 'Helvetica';
+                     font-size: 12px;
+                     display:inline-flex;
+                 }
+                 div {
+                     max-width: 100%; 
+                     width: 100%;
+                 }
+                 a {
+                     display: block;
+                 }
+             </style>
+         </head>
+        <body>
+         <div style="text-align: center; padding: 10px; background-color: #CEE4FE; border-radius: 20px; max-width: 35%; word-break: break-all;">
+             <div style="align-content: center;">
+                 <img 
+                     src="${imageGallery?.uri}" 
+                     style="width:100px;height:100px; border-radius: 10px;"
+                 >
+                 <h3>${formValues.NameSurname}</h3>
+                 <h3>${formValues.Job}</h3>
+                 <h3>${formValues.Location}</h3>
+             </div>
+             ${formValues.Mail && `<a href="${formValues?.Mail}">${formValues?.Mail}</a>`}
+             ${formValues.Portfolio && `<a href="${formValues?.Portfolio}">${formValues?.Portfolio}</a>`}
+             ${formValues.Github && `<a href="https://github.com/${formValues?.Github}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Font_Awesome_5_brands_github.svg/1200px-Font_Awesome_5_brands_github.svg.png" style="width:10px;height:10px;">${formValues?.Github}</a>`}
+             ${formValues.Twitter && `<a href="https://twitter.com/${formValues?.Twitter}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4n_urpJ9XpwOTdzBVbGvactwHrPagYQrTJPYjxfxLGkSyu7nJZVqRVGAeohnPgKMrnKE&usqp=CAU" style="width:10px;height:10px;">${formValues?.Twitter}</a>`}
+             ${formValues.LinkedIn && `<a href="https://www.linkedin.com/in/${formValues?.LinkedIn}/"><img src="https://play-lh.googleusercontent.com/kMofEFLjobZy_bCuaiDogzBcUT-dz3BBbOrIEjJ-hqOabjK8ieuevGe6wlTD15QzOqw" style="width:10px;height:10px;">${formValues?.LinkedIn}</a>`}
+             ${formValues.Instagram && `<a href="https://www.instagram.com/${formValues?.Instagram}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" style="width:10px;height:10px;">${formValues?.Instagram}</a>`}
+             ${formValues.Facebook && `<a href="https://www.facebook.com/${formValues?.Facebook}/"><img src="https://www.facebook.com/images/fb_icon_325x325.png" style="width:10px;height:10px;">${formValues?.Facebook}</a>`}
+             <div >
+                 <div>
+                     <h3 style="text-align: center; color:#FB7487;">Tools Skills</h3>
+                     <div>${toolsSkills.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+                 </div>
+                 <div>
+                     <h3 style="text-align: center; color:#FB7487;">Industry Knowledge</h3>
+                     <div> ${industryKnowledge.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+                 </div>
+                 <div>
+                     <h3 style="text-align: center; color:#FB7487;">Languages</h3>
+                     <div> ${languages.map(e => { return ` <p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+                 </div>
+             </div>
+         </div>
+         <div>
+             <div style=" word-break: break-all; text-align: center; background-color: #CEE4FE; border-radius: 10px; margin-left: 5px;">
+                 <p style="word-break: break-all; padding: 8px;">${formValues.About}</p>
+             </div>
+        
+             <div>
+                 <h2 style="text-align: center; color:#FB7487;">Educations</h2>
+                 ${educationsFormData.map(e => {
+            return `  
+                 <div style="word-break: break-all; text-align: center; background-color: #CEE4FE; border-radius: 10px; margin-left: 5px;">
+                     <h4 style="padding-top: 8px;">${e.studyon}</h4>
+                     <h4>${e.school}</h4>
+                     <h4 style="padding-bottom: 8px;">${e.educationsStart} / ${e.educationsEnd}</h4>
+                 </div>
+                 ` })}
+             </div>
+             <div>
+                 <h2 style="text-align: center; color:#FB7487;">Projects</h2>
+                 ${projectsFormData.map(e => {
+                return `
+                 <a href="${e.ProjectLink}" style="text-decoration:none;color:black;">
+                     <div style="word-break: break-all; text-align: center; background-color: #CEE4FE; border-radius: 10px; margin-left: 5px;">
+                         <h4 style="padding-top: 8px;">${e.ProjectTitl}</h4>
+                         <p style="padding-bottom: 8px;">${e.ProjectSummaryon}</p>
+                     </div>
+                 </a>
+                 ` })}
+             </div>
+             <div>
+                 <h2 style="text-align: center; color:#FB7487;">Experiences</h2>
+                 ${experiencesFormData.map(e => {
+                    return `
+                 <div style="word-break: break-all; text-align: center; background-color: #CEE4FE; border-radius: 10px; margin-left: 5px;">
+                     <h4 style="padding-top: 8px;">${e.Positionon}</h4>
+                     <h4>${e.Companyon}</h4>
+                     <h4>${e.Summaryon}</h4>
+                     <h4 style="padding-bottom: 8px;">${e.ExperiencesStart} / ${e.ExperiencesEnd}</h4>
+                 </div> 
+                 ` })} 
+             </div>
+         </div>
+        </body>
+        </html>
+             `;
+        const TemplatsÜç = `
+        </html>
+        <head>
+        <style>
+            body {
+                font-family: 'Helvetica';
+                font-size: 12px;
+                display:inline-flex;
+            }
+            div {
+                max-width: 98%; 
+                width: 98%;
+            }
+            a {
+                display: block;
+            }
+        </style>
+    </head>
+   <body>
+    <div style="text-align: center; padding: 10px; border-style: outset; border-radius: 20px; max-width: 35%; word-break: break-all;">
+        <div style="align-content: center;">
+            <img 
+                src="${imageGallery?.uri}" 
+                style="width:100px;height:100px; border-radius: 50px;"
+            >  
+        </div>
+               ${formValues.Mail && `<a href="${formValues?.Mail}">${formValues?.Mail}</a>`}
+               ${formValues.Portfolio && `<a href="${formValues?.Portfolio}">${formValues?.Portfolio}</a>`}
+               ${formValues.Github && `<a href="https://github.com/${formValues?.Github}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Font_Awesome_5_brands_github.svg/1200px-Font_Awesome_5_brands_github.svg.png" style="width:10px;height:10px;">${formValues?.Github}</a>`}
+               ${formValues.Twitter && `<a href="https://twitter.com/${formValues?.Twitter}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4n_urpJ9XpwOTdzBVbGvactwHrPagYQrTJPYjxfxLGkSyu7nJZVqRVGAeohnPgKMrnKE&usqp=CAU" style="width:10px;height:10px;">${formValues?.Twitter}</a>`}
+               ${formValues.LinkedIn && `<a href="https://www.linkedin.com/in/${formValues?.LinkedIn}/"><img src="https://play-lh.googleusercontent.com/kMofEFLjobZy_bCuaiDogzBcUT-dz3BBbOrIEjJ-hqOabjK8ieuevGe6wlTD15QzOqw" style="width:10px;height:10px;">${formValues?.LinkedIn}</a>`}
+               ${formValues.Instagram && `<a href="https://www.instagram.com/${formValues?.Instagram}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" style="width:10px;height:10px;">${formValues?.Instagram}</a>`}
+               ${formValues.Facebook && `<a href="https://www.facebook.com/${formValues?.Facebook}/"><img src="https://www.facebook.com/images/fb_icon_325x325.png" style="width:10px;height:10px;">${formValues?.Facebook}</a>`}
+       <div >
+            <div>
+                <h3 style="text-align: center; color:#FB7487;">Tools Skills</h3>
+                <div>${toolsSkills.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color:#FB7487;">Industry Knowledge</h3>
+                <div> ${industryKnowledge.map(e => { return `<p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color:#FB7487;">Languages</h3>
+                <div> ${languages.map(e => { return ` <p style='display:inline-flex; margin-top: 10px; margin-left: 20px;'>${e}</p>` })}</div>
+            </div>
+        </div>
+        <div>
+            <h2 style="text-align: center; color:#FB7487;">Educations</h2>
+            ${educationsFormData.map(e => {
+            return `  
+            <div style="word-break: break-all; text-align: center; border-radius: 10px; margin-left: 5px;">
+                <h4 style="padding-top: 8px;">${e.studyon}</h4>
+                <h4>${e.school}</h4>
+                <h4 style="padding-bottom: 8px;">${e.educationsStart} / ${e.educationsEnd}</h4>
+            </div>
+            ` })}
+        </div>
+    </div>
+    <div>
+        <div style="margin-left: 8px;">
+            <h3 style="font-size: xx-large;">${formValues.NameSurname}</h3>
+            <h3 style="margin-top: -18px; color: #A6ACB8;">${formValues.Job} - ${formValues.Location}</h3>    
+        </div>
+        <div style=" word-break: break-all; border-radius: 10px; margin-left: 5px;">
+            <p style="word-break: break-all; padding: 8px;">${formValues.About}</p>
+        </div>
+   
+       
+        <div style="margin-right: 10px;">
+            <h2 style="text-align: center; color:#FB7487;">Projects</h2>
+            ${projectsFormData.map(e => {
+                return `
+               <a href="${e.ProjectLink}" style="text-decoration:none;color:black;">
+                   <div style="word-break: break-all; text-align: center; border-style: outset; border-radius: 10px; margin-left: 5px; margin-right: 10px;">
+                   <h4>${e.ProjectTitl}</h4>
+                   <p>${e.ProjectSummaryon}</p>
+                   </div>
+               </a>
+            ` })} 
+        </div>
+        <div>
+            <h2 style="text-align: center; color:#FB7487;">Experiences</h2>
+            ${experiencesFormData.map(e => {
+                    return `
+            <div style="word-break: break-all; text-align: center; border-style: outset; border-radius: 10px; margin-left: 5px; margin-right: 10px;">
+               <h4 style="padding-top: 8px;">${e.Positionon}</h4>
+               <h4>${e.Companyon}</h4>
+               <h4>${e.Summaryon}</h4>
+               <h4 style="padding-bottom: 8px;">${e.ExperiencesStart} / ${e.ExperiencesEnd}</h4>
+           </div> 
+        ` })}   
+        </div>
+    </div>
+   </body>
+   </html>
+            `;
+        const options = {
+            html: 
+            status === 'TemplatsBir' && TemplatsBir || 
+            status === 'Templatsİki' && Templatsİki  ||
+            status === 'TemplatsÜç' && TemplatsÜç || '',
             fileName: formValues.NameSurname + 'Cv',
             directory: "Pdf",
         }
@@ -229,8 +424,8 @@ const App = () => {
         Alert.alert(
             '✅ Kaydedildi',
             `Pdf Konumu= ${file.filePath}
-               Pdf Adı= ${formValues.NameSurname}.pdf
-            `,
+                Pdf Adı= ${formValues.NameSurname}.pdf
+                `,
             [
                 {
                     text: 'Pdf Aç',
@@ -243,6 +438,7 @@ const App = () => {
                 },
             ]
         );
+
     }
 
     const openFile = (filepath: any) => {
@@ -604,6 +800,7 @@ const App = () => {
                                     return (
                                         <TemplatBox
                                             key={index}
+                                            source={e.image}
                                             onPress={() => setStatus(e.value)}
                                             status={status}
                                             statusiki={e.value}
@@ -695,3 +892,21 @@ const styles = StyleSheet.create({
         marginVertical: 5
     }
 })
+
+const TemplatsData = [
+    {
+        title: "TemplatsBir",
+        value: "TemplatsBir",
+        image: require('./CvTemplatsBir.png')
+    },
+    {
+        title: "Templatsİki",
+        value: "Templatsİki",
+        image: require('./CvTemplatsİki.png')
+    },
+    {
+        title: "TemplatsÜç",
+        value: "TemplatsÜç",
+        image: require('./CvTemplatsÜç.png')
+    }
+]
