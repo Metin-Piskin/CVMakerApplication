@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CVMakerApplicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CVMakerApplicationTests.m */; };
-		015D98A0EEC3B4B775BB92C0 /* libPods-CVMakerApplication-CVMakerApplicationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64832484B50BD3659A3EFC73 /* libPods-CVMakerApplication-CVMakerApplicationTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1A5A288A19C1D5CE5274E8A2 /* libPods-CVMakerApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1A841B08C28D6BBE0BA094 /* libPods-CVMakerApplication.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		AEC76E25F4E312BB13A92708 /* libPods-CVMakerApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 487FE7663D03B314E6B7329F /* libPods-CVMakerApplication.a */; };
+		EA06A9E89CF9661E49F1592E /* libPods-CVMakerApplication-CVMakerApplicationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF1771209987406081902CA /* libPods-CVMakerApplication-CVMakerApplicationTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,19 +30,35 @@
 		00E356EE1AD99517003FC87E /* CVMakerApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CVMakerApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* CVMakerApplicationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVMakerApplicationTests.m; sourceTree = "<group>"; };
+		0C9F5275C37EB06BD170588A /* Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* CVMakerApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CVMakerApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = CVMakerApplication/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = CVMakerApplication/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CVMakerApplication/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CVMakerApplication/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CVMakerApplication/main.m; sourceTree = "<group>"; };
-		2E07AFFDE535DE9C63F0D73B /* Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
-		4397DD72CDDB026973B243DE /* Pods-CVMakerApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication.debug.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication.debug.xcconfig"; sourceTree = "<group>"; };
-		64832484B50BD3659A3EFC73 /* libPods-CVMakerApplication-CVMakerApplicationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CVMakerApplication-CVMakerApplicationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		486C52D2985834B95CA4E021 /* Pods-CVMakerApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication.debug.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		487FE7663D03B314E6B7329F /* libPods-CVMakerApplication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CVMakerApplication.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E5E63BC2048C52E165B77BF /* Pods-CVMakerApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication.release.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication.release.xcconfig"; sourceTree = "<group>"; };
+		5D6F90452AB0DC5B0050C62A /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		5D6F90462AB0DC5B0050C62A /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		5D6F90472AB0DC5B0050C62A /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		5D6F90482AB0DC5B0050C62A /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		5D6F90492AB0DC5B0050C62A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		5D6F904A2AB0DC5B0050C62A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		5D6F904B2AB0DC5B0050C62A /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		5D6F904C2AB0DC5B0050C62A /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		5D6F904D2AB0DC5B0050C62A /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		5D6F904E2AB0DC5B0050C62A /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		5D6F904F2AB0DC5B0050C62A /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		5D6F90502AB0DC5B0050C62A /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		5D6F90512AB0DC5C0050C62A /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		5D6F90522AB0DC5C0050C62A /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		5D6F90532AB0DC5C0050C62A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		5D6F90542AB0DC5C0050C62A /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		7FF1771209987406081902CA /* libPods-CVMakerApplication-CVMakerApplicationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CVMakerApplication-CVMakerApplicationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CVMakerApplication/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D0F522C380226B93C2281CC5 /* Pods-CVMakerApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication.release.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication.release.xcconfig"; sourceTree = "<group>"; };
-		DD44C10EA0109613A1B9E571 /* Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DF1A841B08C28D6BBE0BA094 /* libPods-CVMakerApplication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CVMakerApplication.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD54772885FF7DCBCC7846B3 /* Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig"; path = "Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015D98A0EEC3B4B775BB92C0 /* libPods-CVMakerApplication-CVMakerApplicationTests.a in Frameworks */,
+				EA06A9E89CF9661E49F1592E /* libPods-CVMakerApplication-CVMakerApplicationTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5A288A19C1D5CE5274E8A2 /* libPods-CVMakerApplication.a in Frameworks */,
+				AEC76E25F4E312BB13A92708 /* libPods-CVMakerApplication.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,10 +116,33 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				DF1A841B08C28D6BBE0BA094 /* libPods-CVMakerApplication.a */,
-				64832484B50BD3659A3EFC73 /* libPods-CVMakerApplication-CVMakerApplicationTests.a */,
+				487FE7663D03B314E6B7329F /* libPods-CVMakerApplication.a */,
+				7FF1771209987406081902CA /* libPods-CVMakerApplication-CVMakerApplicationTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D6F90442AB0DBEA0050C62A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5D6F90462AB0DC5B0050C62A /* AntDesign.ttf */,
+				5D6F90522AB0DC5C0050C62A /* Entypo.ttf */,
+				5D6F90502AB0DC5B0050C62A /* EvilIcons.ttf */,
+				5D6F90482AB0DC5B0050C62A /* Feather.ttf */,
+				5D6F90532AB0DC5C0050C62A /* FontAwesome.ttf */,
+				5D6F90452AB0DC5B0050C62A /* FontAwesome5_Brands.ttf */,
+				5D6F90492AB0DC5B0050C62A /* FontAwesome5_Regular.ttf */,
+				5D6F90542AB0DC5C0050C62A /* FontAwesome5_Solid.ttf */,
+				5D6F904F2AB0DC5B0050C62A /* Fontisto.ttf */,
+				5D6F90512AB0DC5C0050C62A /* Foundation.ttf */,
+				5D6F90472AB0DC5B0050C62A /* Ionicons.ttf */,
+				5D6F904A2AB0DC5B0050C62A /* MaterialCommunityIcons.ttf */,
+				5D6F904B2AB0DC5B0050C62A /* MaterialIcons.ttf */,
+				5D6F904C2AB0DC5B0050C62A /* Octicons.ttf */,
+				5D6F904D2AB0DC5B0050C62A /* SimpleLineIcons.ttf */,
+				5D6F904E2AB0DC5B0050C62A /* Zocial.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -116,6 +155,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				5D6F90442AB0DBEA0050C62A /* Fonts */,
 				13B07FAE1A68108700A75B9A /* CVMakerApplication */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* CVMakerApplicationTests */,
@@ -140,10 +180,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4397DD72CDDB026973B243DE /* Pods-CVMakerApplication.debug.xcconfig */,
-				D0F522C380226B93C2281CC5 /* Pods-CVMakerApplication.release.xcconfig */,
-				DD44C10EA0109613A1B9E571 /* Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig */,
-				2E07AFFDE535DE9C63F0D73B /* Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig */,
+				486C52D2985834B95CA4E021 /* Pods-CVMakerApplication.debug.xcconfig */,
+				4E5E63BC2048C52E165B77BF /* Pods-CVMakerApplication.release.xcconfig */,
+				0C9F5275C37EB06BD170588A /* Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig */,
+				CD54772885FF7DCBCC7846B3 /* Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,12 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CVMakerApplicationTests" */;
 			buildPhases = (
-				C5CFFCA9953BCA3049BD5B3F /* [CP] Check Pods Manifest.lock */,
+				01AF55CE529277526D755ED6 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				9DABA2110ED04D4911D56B9D /* [CP] Embed Pods Frameworks */,
-				0D6DFAC832EF82F51F8F5617 /* [CP] Copy Pods Resources */,
+				E67805456F2B19D4F62A4585 /* [CP] Embed Pods Frameworks */,
+				B5F6C1D9B84BB5887A8571F9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,14 +216,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CVMakerApplication" */;
 			buildPhases = (
-				F9B096851E9C9F1FBBDE57ED /* [CP] Check Pods Manifest.lock */,
+				18D01A61482D11D43EF37EE7 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D392FADC520EF1FD82424DF9 /* [CP] Embed Pods Frameworks */,
-				261F79C1B4B76C726F1BE19E /* [CP] Copy Pods Resources */,
+				65A6E22E070DEC7F70D2A80C /* [CP] Embed Pods Frameworks */,
+				EFBB4C7F3374125DA14EF7E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,7 +240,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -266,58 +307,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		0D6DFAC832EF82F51F8F5617 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		261F79C1B4B76C726F1BE19E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9DABA2110ED04D4911D56B9D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5CFFCA9953BCA3049BD5B3F /* [CP] Check Pods Manifest.lock */ = {
+		01AF55CE529277526D755ED6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,24 +329,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D392FADC520EF1FD82424DF9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F9B096851E9C9F1FBBDE57ED /* [CP] Check Pods Manifest.lock */ = {
+		18D01A61482D11D43EF37EE7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +349,74 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65A6E22E070DEC7F70D2A80C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F6C1D9B84BB5887A8571F9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E67805456F2B19D4F62A4585 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication-CVMakerApplicationTests/Pods-CVMakerApplication-CVMakerApplicationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFBB4C7F3374125DA14EF7E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CVMakerApplication/Pods-CVMakerApplication-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -430,8 +471,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD44C10EA0109613A1B9E571 /* Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig */;
+			baseConfigurationReference = 0C9F5275C37EB06BD170588A /* Pods-CVMakerApplication-CVMakerApplicationTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -457,8 +499,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E07AFFDE535DE9C63F0D73B /* Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig */;
+			baseConfigurationReference = CD54772885FF7DCBCC7846B3 /* Pods-CVMakerApplication-CVMakerApplicationTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CVMakerApplicationTests/Info.plist;
@@ -481,7 +524,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4397DD72CDDB026973B243DE /* Pods-CVMakerApplication.debug.xcconfig */;
+			baseConfigurationReference = 486C52D2985834B95CA4E021 /* Pods-CVMakerApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -508,7 +551,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0F522C380226B93C2281CC5 /* Pods-CVMakerApplication.release.xcconfig */;
+			baseConfigurationReference = 4E5E63BC2048C52E165B77BF /* Pods-CVMakerApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
